@@ -85,8 +85,9 @@
       &:after {
         @include inline-block();
         content: "";
-        height: 7px;
+        height: 8px;
         width: 14px;
+        margin-top: -1px;
         margin-left: .5em;
         background-repeat: no-repeat;
         background-position: 50% 50%;
