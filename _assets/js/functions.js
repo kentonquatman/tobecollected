@@ -4,6 +4,12 @@ var Site = window.Site || {};
 
     // PLACEHOLDER
     $('input, textarea').placeholder();
+    
+    // SLIDE TOGGLE
+    
+    $('.nav-toggle').click(function(){
+      $('.site-header__collections ol').slideToggle();
+    });
 
   });
 })(jQuery);

@@ -187,6 +187,94 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/_assets\/img\/graphics\/down-arrow-01-2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 216,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/down-arrow-01-2x.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/down-arrow-01-2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/graphics\/down-arrow-01.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/down-arrow-01.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/down-arrow-01.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/graphics\/share-icon-01-2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 639,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/share-icon-01-2x.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/share-icon-01-2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/graphics\/share-icon-01.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 382,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/share-icon-01.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/share-icon-01.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/graphics\/social-sprite-01-2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1129,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/social-sprite-01-2x.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/social-sprite-01-2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/graphics\/social-sprite-01.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 621,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/social-sprite-01.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/social-sprite-01.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/logo\/header-logo-01-2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3001,
+		"inputAbbreviatedPath": "\/_assets\/img\/logo\/header-logo-01-2x.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/logo\/header-logo-01-2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/logo\/header-logo-01.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1549,
+		"inputAbbreviatedPath": "\/_assets\/img\/logo\/header-logo-01.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/logo\/header-logo-01.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/_assets\/js\/functions.js": {
 		"fileType": 64,
 		"ignore": 1,

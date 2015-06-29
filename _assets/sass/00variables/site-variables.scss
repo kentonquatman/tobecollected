@@ -2,28 +2,33 @@
  FONT STACKS
 **************************************************/
 
-$sans-serif: "Helvetica Neue", Helmet, Freesans, sans-serif;
+$sans-serif: Helmet, Freesans, sans-serif;
 $serif: Georgia, Times, "Times New Roman", serif;
 $monospace: "courier new", monospace, serif;
+
+$pt-sans: "PT Sans", $sans-serif;
+$garamond: "EB Garamond", $serif;
 
 /**************************************************
  FONT USAGE
 **************************************************/
 
-$body-font: $sans-serif;
-$headline-font: $sans-serif;
-$button-font: $sans-serif;
+$body-font: $pt-sans;
+$headline-font: $garamond;
+$button-font: $pt-sans;
 $code-font: $monospace;
 
 /**************************************************
  COLOR PALETTE
 **************************************************/
 
-$black: #1a1a1a;
-$dk-gray: #404040;
-$gray: #808080;
-$lt-gray: #bfbfbf;
 $white: #fff;
+$black: #231f20;
+$dk-gray: #383739;
+$lt-gray: #747679;
+$dk-brown: #24221d;
+$md-brown: #675f57;
+$lt-brown: #a79a81;
 
 /**************************************************
  COLOR USAGE
@@ -31,21 +36,20 @@ $white: #fff;
 
 /* Base Colors */
 
-$selection-bg: transparentize($dk-gray, 0.5);
+$selection-bg: transparentize($dk-brown,0.5);
 $selection-text: $white;
 
 $body-bg: $white;
 $body-text: $black;
-
-$border-color: $dk-gray;
+$border-color: $black;
 
 /* Link Colors */
 
-$link-color: $gray;
+$link-color: $lt-brown;
 $link-hover: $dk-gray;
 
 $button-text: $white;
-$button-bg: $black;
+$button-bg: $lt-brown;
 
 /**************************************************
  UNICODE CHARACTERS

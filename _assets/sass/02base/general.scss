@@ -25,3 +25,7 @@ body {
   color: $body-text;
   font-family: $body-font;
 }
+
+.inner {
+  @extend %site-column;
+}

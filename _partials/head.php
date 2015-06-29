@@ -34,6 +34,7 @@
   <meta property="og:url" content="http://www.permalink.com/">
 
   <link type="text/css" rel="stylesheet" href="_assets/css/style.css">
+  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|EB+Garamond">
 
   <script src="_assets/js/scripts.head.min.js"></script>
   
