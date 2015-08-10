@@ -3,5 +3,21 @@
 **************************************************/
 
 .main {
-
+  &__top {
+    padding: 1.5em $side-padding;
+    border-bottom: 1px solid $border-color;
+    h1 {
+      color: $lt-brown;
+      font-family: $garamond;
+      font-weight: 400;
+    }
+  }
+  article {
+    padding: 4em;
+    @include break-up($x-large){
+      float: right;
+      width: 65%;
+      border-left: 1px solid $border-color;
+    }
+  }
 }

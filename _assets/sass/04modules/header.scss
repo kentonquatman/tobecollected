@@ -5,6 +5,7 @@
 .site-header {
   @extend %clearfix;
   background-color: $dk-brown;
+  border-bottom: 4em solid $md-brown;
   h1 {
     @include font-size(10);
     width: 25em;
@@ -87,8 +88,8 @@
         content: "";
         height: 8px;
         width: 14px;
-        margin-top: -1px;
-        margin-left: .5em;
+        margin-top: -3px;
+        margin-left: 1em;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         @include hires(
