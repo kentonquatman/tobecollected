@@ -40,6 +40,9 @@
       color: $black;
       text-align: center;
       text-transform: uppercase;
+      @include break-up($small){
+        max-width: 20em;
+      }
       &:hover,
       &:focus {
         background-color: $lt-brown;
