@@ -14,3 +14,7 @@
     clear:both;
   }
 }
+
+%transition {
+  @include transition();
+}

@@ -17,6 +17,9 @@
       margin: 0;
       padding: 7em 0 0 $side-padding;
     }
+    @include break-up(1170){
+      padding-left: 0;
+    }
     a {
       display: block;
       overflow: hidden;

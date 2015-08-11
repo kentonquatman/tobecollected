@@ -253,14 +253,20 @@ html {
 /**************************************************
  SHAREABLE STYLES
 **************************************************/
-.site-header {
+.site-header, .bottom, .main {
   zoom: 1; }
-  .site-header:before, .site-header:after {
+  .site-header:before, .bottom:before, .main:before, .site-header:after, .bottom:after, .main:after {
     display: table;
     visibility: hidden;
     content: ""; }
-  .site-header:after {
+  .site-header:after, .bottom:after, .main:after {
     clear: both; }
+
+a {
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
 
 /**************************************************
  BASE
@@ -326,20 +332,20 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400; }
 
 h1 {
-  font-size: 36px;
-  font-size: 3.6rem; }
+  font-size: 26px;
+  font-size: 2.6rem; }
 
 h2 {
-  font-size: 30px;
-  font-size: 3rem; }
+  font-size: 20px;
+  font-size: 2rem; }
 
 h3 {
-  font-size: 24px;
-  font-size: 2.4rem; }
+  font-size: 16px;
+  font-size: 1.6rem; }
 
 h4 {
-  font-size: 18px;
-  font-size: 1.8rem; }
+  font-size: 14px;
+  font-size: 1.4rem; }
 
 h5 {
   font-size: 14px;
@@ -349,6 +355,46 @@ h6 {
   font-size: 12px;
   font-size: 1.2rem; }
 
+@media screen and (min-width: 33.75em) {
+  h1 {
+    font-size: 32px;
+    font-size: 3.2rem; }
+
+  h2 {
+    font-size: 26px;
+    font-size: 2.6rem; }
+
+  h3 {
+    font-size: 20px;
+    font-size: 2rem; }
+
+  h4 {
+    font-size: 16px;
+    font-size: 1.6rem; } }
+@media screen and (min-width: 56.25em) {
+  h1 {
+    font-size: 38px;
+    font-size: 3.8rem; }
+
+  h2 {
+    font-size: 32px;
+    font-size: 3.2rem; }
+
+  h3 {
+    font-size: 26px;
+    font-size: 2.6rem; }
+
+  h4 {
+    font-size: 20px;
+    font-size: 2rem; }
+
+  h5 {
+    font-size: 16px;
+    font-size: 1.6rem; }
+
+  h6 {
+    font-size: 14px;
+    font-size: 1.4rem; } }
 p, ul li, ol li, address {
   font-size: 12px;
   font-size: 1.2rem;
@@ -423,6 +469,9 @@ textarea {
         width: auto;
         margin: 0;
         padding: 7em 0 0 5%; } }
+    @media screen and (min-width: 73.125em) {
+      .site-header h1 {
+        padding-left: 0; } }
     .site-header h1 a {
       display: block;
       overflow: hidden;
@@ -535,8 +584,46 @@ textarea {
       height: 17em; } }
 
 /**************************************************
- NAVIGATION STYLES
+ BOTTOM SECTION STYLES
 **************************************************/
+.bottom {
+  padding: 3em 5%;
+  background-color: #24221d;
+  color: #747679; }
+  @media screen and (min-width: 45em) {
+    .bottom {
+      padding: 4.5em 5%; } }
+  .bottom aside {
+    margin-bottom: 3em; }
+    @media screen and (min-width: 33.75em) {
+      .bottom aside {
+        float: left;
+        width: 65%;
+        margin-bottom: 0; } }
+    .bottom aside h2 {
+      margin: 0 0 .75em;
+      color: #a79a81;
+      font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
+      font-weight: 400; }
+  @media screen and (min-width: 33.75em) {
+    .bottom__buttons {
+      float: right;
+      width: 30%;
+      margin-top: .25em; } }
+  .bottom__buttons .button {
+    font-size: 12px;
+    font-size: 1.2rem;
+    display: block;
+    margin: 0 0 1.5em;
+    padding: .75em 1em;
+    background-color: #fff;
+    border: 1px solid #a79a81;
+    color: #231f20;
+    text-align: center;
+    text-transform: uppercase; }
+    .bottom__buttons .button:hover, .bottom__buttons .button:focus {
+      background-color: #a79a81; }
+
 /**************************************************
  FOOTER STYLES
 **************************************************/

@@ -3,6 +3,7 @@
 **************************************************/
 
 .main {
+  @extend %clearfix;
   &__top {
     padding: 1.5em $side-padding;
     border-bottom: 1px solid $border-color;
