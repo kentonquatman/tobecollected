@@ -64,9 +64,25 @@ ul, ol {
 }
 
 blockquote {
+  @include font-size(16);
+  margin: 2em;
+  padding: 1.25em .75em;
+  border: 1px solid $lt-brown;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  line-height: 1.4;
+  @include break-up($small){
+    float: right;
+    width: 45%;
+    margin: 1em 0 1em 1.5em;
+  }
+  @include break-up($xx-large){
+    margin-right: -4.5em;
+  }
   p {
-    font-size: 1em;
     margin: 0;
+    font-size: 1em;
   }
 }
 
