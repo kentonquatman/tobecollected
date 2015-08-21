@@ -7,8 +7,8 @@
 
 <section class="main">
   <div class="inner">
-    <article class="product-details">
-      <header class="product-details__header">
+    <article class="product">
+      <header class="product__header">
         <h1>settee</h1>
         <p>
           <span class="price">$2100</span>
@@ -17,11 +17,11 @@
         </p>
         <a class="back" href="index.php">&lt; Back to Collection</a>
       </header>
-      <figure class="product-details__photo">
+      <figure class="product__photo">
         <img src="_assets/img/photos/product-photo-09.jpg" alt="photo">
       </figure>
     </article>
-    <aside class="product-details__header">
+    <aside class="product__details">
       <div class="group">
         <h4 class="group__heading">Product Description</h4>
         <p class="product-dimensions">Dimensions: 69"l x 33"d x 31"h</p>
@@ -40,7 +40,10 @@
       </ul>
     </aside>
   </div>
-  <ul class="image-gallery">
+</section>
+
+<section class="gallery">
+  <ul class="gallery__images">
     <li><img src="_assets/img/photos/gallery-photo-01.jpg" alt="photo"></li>
     <li><img src="_assets/img/photos/gallery-photo-02.jpg" alt="photo"></li>
     <li><img src="_assets/img/photos/gallery-photo-03.jpg" alt="photo"></li>
@@ -49,6 +52,7 @@
     <li><img src="_assets/img/photos/gallery-photo-06.jpg" alt="photo"></li>
   </ul>
 </section>
+
 
 <?php
   include '_partials/footer.php';

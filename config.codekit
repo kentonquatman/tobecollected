@@ -231,6 +231,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/_assets\/img\/graphics\/share-sprite-01-2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2217,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/share-sprite-01-2x.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/share-sprite-01-2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_assets\/img\/graphics\/share-sprite-01.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1539,
+		"inputAbbreviatedPath": "\/_assets\/img\/graphics\/share-sprite-01.png",
+		"outputAbbreviatedPath": "\/_assets\/img\/graphics\/share-sprite-01.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/_assets\/img\/graphics\/social-sprite-01-2x.png": {
 		"fileType": 32768,
 		"ignore": 0,
