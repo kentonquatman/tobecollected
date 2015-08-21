@@ -8,9 +8,11 @@
   @include break-up($medium){
     float: left;
     width: 60%;
-    padding-left: 3em;
-    padding-right: 3em;
+    padding: 4.5em;
     border-bottom: none;
+  }
+  @include break-up($x-large){
+    width: 66.66%;
   }
   &__header {
     h1 {
@@ -64,6 +66,7 @@
     }
     @include break-up($x-large){
       padding-top: 12em;
+      width: 33.33%;
     }
     .group {
       position: relative;
