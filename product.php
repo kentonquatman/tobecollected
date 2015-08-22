@@ -13,7 +13,7 @@
         <p>
           <span class="price">$2100</span>
           <span class="spacer">|</span>
-          <a class="add" href="#">ADD</a>
+          <a class="add" href="cart.php">ADD</a>
         </p>
         <a class="back" href="index.php">&lt; Back to Collection</a>
       </header>

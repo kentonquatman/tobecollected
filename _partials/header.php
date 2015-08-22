@@ -3,19 +3,19 @@
     <h1 class="site-header__logo"><a href="index.php">To Be Collected</a></h1>
     <div class="site-header__navigation">
       <div class="site-header__cart">
-        <p>Cart <span class="spacer">|</span> <a href="#">1</a></p>
+        <a href="cart.php">Cart <span class="spacer">|</span> <span class="cart-count">1</span></a>
       </div>
       <nav class="site-header__collections">
         <span class="nav-toggle">Collections</span>
         <ol>
-          <li><a href="#">Full Collection</a></li>
-          <li><a href="#">Small Goods</a></li>
-          <li><a href="#">Furniture</a></li>
-          <li><a href="#">Housewares</a></li>
-          <li><a href="#">Lighting</a></li>
-          <li><a href="#">Tables</a></li>
-          <li><a href="#">Jewelry</a></li>
-          <li><a href="#">Miscellaneous</a></li>
+          <li><a href="index.php">Full Collection</a></li>
+          <li><a href="index.php">Small Goods</a></li>
+          <li><a href="index.php">Furniture</a></li>
+          <li><a href="index.php">Housewares</a></li>
+          <li><a href="index.php">Lighting</a></li>
+          <li><a href="index.php">Tables</a></li>
+          <li><a href="index.php">Jewelry</a></li>
+          <li><a href="index.php">Miscellaneous</a></li>
         </ol>
       </nav>
     </div>

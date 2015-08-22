@@ -1,0 +1,94 @@
+/**************************************************
+ CART PAGE STYLES
+**************************************************/
+
+.cart {
+  &__header {
+    @extend %clearfix;
+    padding: 4.5em $side-padding;
+    border-bottom: 1px solid $border-color;
+    h1 {
+      margin: 0 0 1em;
+      color: $lt-brown;
+      font-family: $garamond;
+      font-weight: 400;
+      @include break-up($small){
+        float: left;
+        margin-bottom: 0;
+      }
+    }
+    &__links {
+      margin: 0;
+      @include break-up($small){
+        float: right;
+        width: 66.66%;
+        margin-top: 1.25em;
+      }
+      li {
+        list-style: none;
+        float: left;
+        width: 50%;
+        margin: 0;
+        line-height: 1;
+      }
+    }
+    .back,
+    .checkout {
+      @include inline-block();
+      text-transform: uppercase;
+      &:hover,
+      &:focus {
+        color: $black;
+      }
+    }
+    .back { color: $x-lt-gray }
+    .checkout { color: $red }
+  }
+  &__item {
+    @extend %clearfix;
+    padding: 1.5em $side-padding;
+    border-bottom: 1px solid $border-color;
+    figure {
+      text-align: center;
+      @include break-up($medium){
+        float: left;
+        width: 30%;
+      }
+      img { vertical-align: bottom }
+    }
+    aside {
+      @extend %clearfix;
+      padding: 1.5em 0;
+      @include break-up($medium){
+        float: right;
+        width: 66.66%;
+      }
+      .group {
+        @include break-up($small){
+          float: left;
+          width: 50%;
+        }
+        &.description {
+          margin-bottom: 1.75em;
+          padding-bottom: 1.75em;
+          border-bottom: 1px solid $lt-gray;
+          h3 {
+            margin: 0 0 1em;
+            text-transform: uppercase;
+          }
+          .remove {
+            @include inline-block(middle);
+            @include font-size(11);
+            margin-left: 1em;
+            color: $red;
+          }
+          .product-dimensions {
+            @include font-size(14);
+            display: block;
+            color: $x-lt-gray;
+          }
+        }
+      }
+    }
+  }
+}

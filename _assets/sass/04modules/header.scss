@@ -81,11 +81,13 @@
       }
     }
     .nav-toggle {
+      @extend %transition;
       @include font-size(12);
-      display: block;
+      @include inline-block();
       color: $lt-brown;
       text-transform: uppercase;
       cursor: pointer;
+      &:hover,&:focus { color: $white }
       &:after {
         @include inline-block();
         content: "";
@@ -108,19 +110,21 @@
     @include break-up($small){
       border-left: 1px solid $dk-gray;
     }
-    p {
+    a {
       @include font-size(12);
+      @include inline-block();
       margin: 0;
       color: $lt-brown;
-      line-height: normal;
+      line-height: 1;
       text-transform: uppercase;
-    }
-    a {
-      color: $white;
+      &:hover, &:focus { color: $white }
     }
     .spacer {
       margin: 0 .5em;
       color: $dk-gray;
+    }
+    .cart-count {
+      color: $white;
     }
   }
   &__content {

@@ -253,16 +253,16 @@ html {
 /**************************************************
  SHAREABLE STYLES
 **************************************************/
-.site-header, .bottom, .site-footer, .site-footer__nav, .main, .product-list {
+.site-header, .bottom, .site-footer, .site-footer__nav, .main, .cart__header, .cart__item, .cart__item aside, .product-list {
   zoom: 1; }
-  .site-header:before, .bottom:before, .site-footer:before, .site-footer__nav:before, .main:before, .product-list:before, .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .product-list:after {
+  .site-header:before, .bottom:before, .site-footer:before, .site-footer__nav:before, .main:before, .cart__header:before, .cart__item:before, .cart__item aside:before, .product-list:before, .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .cart__header:after, .cart__item:after, .cart__item aside:after, .product-list:after {
     display: table;
     visibility: hidden;
     content: ""; }
-  .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .product-list:after {
+  .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .cart__header:after, .cart__item:after, .cart__item aside:after, .product-list:after {
     clear: both; }
 
-a {
+a, .site-header__collections .nav-toggle {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -547,10 +547,16 @@ textarea {
     .site-header__collections .nav-toggle {
       font-size: 12px;
       font-size: 1.2rem;
-      display: block;
+      display: inline-block;
+      vertical-align: middle;
+      *vertical-align: auto;
+      *zoom: 1;
+      *display: inline;
       color: #a79a81;
       text-transform: uppercase;
       cursor: pointer; }
+      .site-header__collections .nav-toggle:hover, .site-header__collections .nav-toggle:focus {
+        color: #fff; }
       .site-header__collections .nav-toggle:after {
         display: inline-block;
         vertical-align: middle;
@@ -574,18 +580,25 @@ textarea {
     @media screen and (min-width: 33.75em) {
       .site-header__cart {
         border-left: 1px solid #383739; } }
-    .site-header__cart p {
+    .site-header__cart a {
       font-size: 12px;
       font-size: 1.2rem;
+      display: inline-block;
+      vertical-align: middle;
+      *vertical-align: auto;
+      *zoom: 1;
+      *display: inline;
       margin: 0;
       color: #a79a81;
-      line-height: normal;
+      line-height: 1;
       text-transform: uppercase; }
-    .site-header__cart a {
-      color: #fff; }
+      .site-header__cart a:hover, .site-header__cart a:focus {
+        color: #fff; }
     .site-header__cart .spacer {
       margin: 0 .5em;
       color: #383739; }
+    .site-header__cart .cart-count {
+      color: #fff; }
   .site-header__content {
     clear: both; }
     @media screen and (min-width: 56.25em) {
@@ -856,9 +869,10 @@ textarea {
 .main {
   border-top: 4em solid #675f57; }
   .main__top {
-    padding: 1.5em 5%;
+    padding: 4.5em 5%;
     border-bottom: 1px solid #231f20; }
     .main__top h1 {
+      margin: 0;
       color: #a79a81;
       font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
       font-weight: 400; }
@@ -1016,6 +1030,94 @@ textarea {
       display: block;
       width: 100%;
       max-width: none; }
+
+/**************************************************
+ CART PAGE STYLES
+**************************************************/
+.cart__header {
+  padding: 4.5em 5%;
+  border-bottom: 1px solid #231f20; }
+  .cart__header h1 {
+    margin: 0 0 1em;
+    color: #a79a81;
+    font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
+    font-weight: 400; }
+    @media screen and (min-width: 33.75em) {
+      .cart__header h1 {
+        float: left;
+        margin-bottom: 0; } }
+  .cart__header__links {
+    margin: 0; }
+    @media screen and (min-width: 33.75em) {
+      .cart__header__links {
+        float: right;
+        width: 66.66%;
+        margin-top: 1.25em; } }
+    .cart__header__links li {
+      list-style: none;
+      float: left;
+      width: 50%;
+      margin: 0;
+      line-height: 1; }
+  .cart__header .back,
+  .cart__header .checkout {
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    text-transform: uppercase; }
+    .cart__header .back:hover, .cart__header .back:focus,
+    .cart__header .checkout:hover,
+    .cart__header .checkout:focus {
+      color: #231f20; }
+  .cart__header .back {
+    color: #8f9194; }
+  .cart__header .checkout {
+    color: #9c2124; }
+.cart__item {
+  padding: 1.5em 5%;
+  border-bottom: 1px solid #231f20; }
+  .cart__item figure {
+    text-align: center; }
+    @media screen and (min-width: 45em) {
+      .cart__item figure {
+        float: left;
+        width: 30%; } }
+    .cart__item figure img {
+      vertical-align: bottom; }
+  .cart__item aside {
+    padding: 1.5em 0; }
+    @media screen and (min-width: 45em) {
+      .cart__item aside {
+        float: right;
+        width: 66.66%; } }
+    @media screen and (min-width: 33.75em) {
+      .cart__item aside .group {
+        float: left;
+        width: 50%; } }
+    .cart__item aside .group.description {
+      margin-bottom: 1.75em;
+      padding-bottom: 1.75em;
+      border-bottom: 1px solid #747679; }
+      .cart__item aside .group.description h3 {
+        margin: 0 0 1em;
+        text-transform: uppercase; }
+      .cart__item aside .group.description .remove {
+        display: inline-block;
+        vertical-align: middle;
+        *vertical-align: auto;
+        *zoom: 1;
+        *display: inline;
+        font-size: 11px;
+        font-size: 1.1rem;
+        margin-left: 1em;
+        color: #9c2124; }
+      .cart__item aside .group.description .product-dimensions {
+        font-size: 14px;
+        font-size: 1.4rem;
+        display: block;
+        color: #8f9194; }
 
 /**************************************************
  HOME PAGE STYLES
