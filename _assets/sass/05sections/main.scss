@@ -8,6 +8,10 @@
   &__top {
     padding: 4.5em $side-padding;
     border-bottom: 1px solid $border-color;
+    @include break-up($medium){
+      padding-top: 6em;
+      padding-bottom: 6em;
+    }
     h1 {
       margin: 0;
       color: $lt-brown;

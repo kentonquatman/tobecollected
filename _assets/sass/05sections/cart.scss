@@ -7,6 +7,14 @@
     @extend %clearfix;
     padding: 4.5em $side-padding;
     border-bottom: 1px solid $border-color;
+    @include break-up($medium){
+      padding-top: 6em;
+      padding-bottom: 6em;
+    }
+    .inner {
+      @extend %clearfix;
+      position: relative;
+    }
     h1 {
       margin: 0 0 1em;
       color: $lt-brown;
@@ -44,6 +52,28 @@
     .back { color: $x-lt-gray }
     .checkout { color: $red }
   }
+  &__price-headings {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 33.33%;
+    margin: 0 0 -4.5em;
+    list-style: none;
+    @include break-up($medium){
+      display: block;
+    }
+    li {
+      @include font-size(12);
+      float: left;
+      width: 30%;
+      margin: 0 0 0 5%;
+      line-height: 1;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
   &__item {
     @extend %clearfix;
     padding: 1.5em $side-padding;
@@ -52,7 +82,7 @@
       text-align: center;
       @include break-up($medium){
         float: left;
-        width: 30%;
+        width: 25%;
       }
       img { vertical-align: bottom }
     }
@@ -69,25 +99,159 @@
           width: 50%;
         }
         &.description {
-          margin-bottom: 1.75em;
-          padding-bottom: 1.75em;
-          border-bottom: 1px solid $lt-gray;
-          h3 {
+          margin-bottom: 1.5em;
+          @include break-up($small){
+            margin-bottom: 0;
+            padding-top: 3em;
+          }
+          h5 {
             margin: 0 0 1em;
             text-transform: uppercase;
           }
           .remove {
             @include inline-block(middle);
-            @include font-size(11);
+            @include font-size(9);
+            margin-top: -0.5em;
             margin-left: 1em;
             color: $red;
           }
           .product-dimensions {
-            @include font-size(14);
             display: block;
+            margin: .5em 0;
             color: $x-lt-gray;
           }
         }
+        &.price {
+          padding-top: 1.5em;
+          border-top: 1px solid $x-lt-brown;
+          @include break-up($small){
+            border-top: none;
+            padding-top: 3em;
+          }
+          .item-price,
+          .item-qty,
+          .item-total {
+            @include font-size(12);
+            display: block;
+            float: left;
+            width: 30%;
+          }
+          .item-price,
+          .item-total {
+            margin-top: .75em;
+          }
+          .item-price {
+            position: relative;
+            padding-right: 1.5em;
+            &:after {
+              content: "\2715";
+              position: absolute;
+              right: 0;
+              color: $lt-brown;
+            }
+          }
+          .item-qty {
+            margin: 0 0 0 5%;
+          }
+          .item-total {
+            font-weight: bold;
+            margin-left: 5%;
+          }
+        }
+      }
+    }
+  }
+  &__footer {
+    @extend %clearfix;
+    padding: 6em $side-padding;
+    &__shipping {
+      margin-bottom: 6em;
+      @include break-up($small){
+        float: left;
+        width: 45%;
+        max-width: 24em;
+        margin-bottom: 0;
+      }
+      @include break-up($medium){
+        width: 27%;
+        margin-left: 33.33%;
+      }
+      h6 {
+        @include font-size(12);
+        margin: 0 0 1em;
+        text-transform: uppercase;
+      }
+      input[type="submit"]{
+        background-color: $x-lt-gray;
+        border: 1px solid $border-color;
+        text-align: left;
+        &:hover,
+        &:focus {
+          background-color: $lt-gray;
+        }
+      }
+    }
+    .standard-shipping {
+      margin: 1.5em 0;
+      &:before {
+        @include inline-block();
+        @include border-radius(50%);
+        content: "";
+        width: 1em;
+        height: 1em;
+        margin-right: .5em;
+        background-color: $red;
+      }
+    }
+    .disclaimer {
+      color: $red;
+      font-style: italic;
+    }
+    &__totals {
+      @include break-up($small){
+        float: right;
+        width: 45%;
+      }
+      @include break-up($medium){
+        width: 33.33%;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+      }
+      li {
+        @include font-size(14);
+        overflow: hidden;
+        margin: .25em 0;
+        .label {
+          display: block;
+          float: left;
+          width: 60%;
+          color: $lt-gray;
+        }
+        .amount {
+          display: block;
+          float: right;
+          width: 40%;
+        }
+        &.grand-total {
+          padding-top: .25em;
+          border-top: 1px solid $border-color;
+          font-weight: bold;
+          .label,
+          .amount {
+            color: $black;
+          }
+        }
+      }
+    }
+    .button {
+      margin: 4.5em 0 0;
+      background-color: $red;
+      color: $white;
+      &:hover,
+      &:focus {
+        background-color: darken($red,10%);
       }
     }
   }

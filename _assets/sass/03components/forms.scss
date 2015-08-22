@@ -10,18 +10,42 @@ input[type="url"],
 input[type="password"],
 textarea {
   @include border-radius(0);
+  @include font-size(12);
   -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+  padding: .75em 1em;
+  background-color: $white;
+  border: 1px solid $border-color;
 }
 
 input {
   &[type="text"] { 
   }
   &[type="submit"] {
+    @extend button;
   }
 }
 
-button {  
+button {
+  @extend %transition;
+  @extend %button;
+  border: none;
+  width: 100%;
 }
 
 label {
+}
+
+select {
+  @include border-radius(0);
+  @include font-size(12);
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+  padding: .75em 1em;
+  background-color: $white;
+  border: 1px solid $border-color;
 }
