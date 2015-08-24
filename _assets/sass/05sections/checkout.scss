@@ -1,0 +1,241 @@
+/**************************************************
+ CHECKOUT PAGE STYLES
+**************************************************/
+
+.checkout {
+  &__header {
+    @extend %clearfix;
+    padding: 6em $side-padding;
+    border-bottom: 1px solid $border-color;
+    .inner {
+      @extend %clearfix;
+      position: relative;
+    }
+    h1 {
+      float: left;
+      margin: 0;
+      color: $lt-brown;
+      font-family: $garamond;
+      font-weight: 400;
+    }
+    &__steps {
+      @extend %clearfix;
+      float: left;
+      margin: 0 0 0 4.5em;
+      list-style: none;
+      text-align: center;
+      background: url("../img/graphics/dashed-line-01.png") 0 12px repeat-x;
+      @include break-up($small){
+        margin-top: .5em;
+        margin-left: 6em;
+      }
+      @include break-up($medium){
+        margin-left: 7.5em;
+      }
+      li {
+        @include font-size(10);
+        position: relative;
+        float: left;
+        line-height: 1;
+        margin: 0 0 0 6em;
+        &:first-child {
+          margin-left: 0;
+        }
+        @include break-up($small){
+          margin-left: 9em;
+        }
+        @include break-up($medium){
+          margin-left: 12em;
+        }
+      }
+      .number {
+        @include font-size(12);
+        display: block;
+        width: 2.5em;
+        margin: 0;
+        padding: .75em 0;
+        background-color: $white;
+        border: 1px solid $border-color;
+        text-align: center;
+      }
+      .label {
+        @include font-size(10);
+        position: absolute;
+        top: 4.5em;
+        left: 50%;
+        display: block;
+        text-align: center;
+        width: 9em;
+        margin-left: -4.5em;
+        color: $x-lt-gray;
+        @include break-up($medium){
+          width: 15em;
+          margin-left: -7.5em;
+        }
+      }
+      .current {
+        .number {
+          background-color: $x-lt-brown;
+          border: 1px solid $red;
+        }
+        .label {
+          color: $black;
+        }
+      }
+    }
+  }
+  &__content {
+    border-bottom: 1px solid $border-color;
+    .inner {
+      position: relative;
+    }
+  }
+  &__form {
+    @extend %checkout-form;
+    &__billing {
+      @include break-up($medium){
+        float: left;
+      }
+    }
+    &__shipping {
+      @include break-up($medium){
+        float: right;
+      }
+    }
+    h4 {
+      @include font-size(14);
+      margin: 1.5em 0;
+      text-transform: uppercase;
+    }
+    .ship-to-billing {
+      @extend %checkout-checkbox;
+      margin-top: 3em;
+    }
+  }
+  &__summary {
+    padding: 3em $side-padding;
+    background-color: $x-lt-brown;
+    @include break-up($large){
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 33.33%;
+      padding: 3em 3em 9em;
+    }
+    .inner {
+      position: static;
+      max-width: 42em;
+      margin: 0 auto;
+    }
+    h4 {
+      @include font-size(14);
+      margin: 1.5em 0;
+      text-transform: uppercase;
+    }
+    &__totals {
+      margin: 3em 0;
+      list-style: none;
+      li {
+        overflow: hidden;
+      }
+      .label {
+        float: left;
+        width: 45%;
+      }
+      .ammount {
+        float: right;
+        width: 50%;
+      }
+      .totals {
+        margin-top: 1.5em;
+      }
+    }
+    .view-cart {
+      @include font-size(10);
+      margin: 3em 0;
+      text-transform: uppercase;
+      a {
+        color: $red;
+        &:hover,
+        &:focus {
+          color: $black;
+        }
+      }
+    }
+    .button {
+      background-color: $red;
+      color: $white;
+      @include break-up($large){
+        position: absolute;
+        bottom: 1.5em;
+        left: 3em;
+        right: 3em;
+      }
+      &:hover,
+      &:focus {
+        background-color: darken($red,10%);
+      }
+    }
+  }
+  &__registration {
+    &__form {
+      @extend %checkout-form;
+      .register-checkbox {
+        @extend %checkout-checkbox;
+      }
+    }
+  }
+}
+
+%checkout-form {
+  @extend %clearfix;
+  padding: 3em $side-padding;
+  @include break-up($large){
+    width: 66.66%;
+    padding: 3em;
+  }
+  fieldset {
+    @include break-up($medium){
+      width: 47.5%;
+    }
+  }
+  .field-group {
+    @include font-size(10);
+    margin: 1.5em 0;
+    overflow: hidden;
+    label {
+      @include font-size(12);
+      display: block;
+      margin-bottom: .5em;
+      @include break-up($small){
+        float: left;
+        width: 20%;
+        margin-top: .625em;
+        margin-bottom: 0;
+      }
+      @include break-up($medium){
+        width: 22.5%;
+      }
+    }
+    input,
+    select {
+      margin: 0;
+      @include break-up($small){
+        float: right;
+        width: 80%;
+      }
+      @include break-up($medium){
+        width: 75%;
+      }
+    }
+  }
+}
+
+%checkout-checkbox {
+  padding-left: 1.75em;
+  input {
+    @include inline-block();
+    margin: -0.125em .5em 0 -1.75em;
+  }
+}

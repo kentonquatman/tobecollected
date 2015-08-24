@@ -253,13 +253,13 @@ html {
 /**************************************************
  SHAREABLE STYLES
 **************************************************/
-.site-header, .bottom, .site-footer, .site-footer__nav, .main, .cart__header, .cart__header .inner, .cart__item, .cart__item aside, .cart__footer, .product-list {
+.site-header, .bottom, .site-footer, .site-footer__nav, .main, .cart__header, .cart__header .inner, .cart__item, .cart__item aside, .cart__footer, .checkout__header, .checkout__header .inner, .checkout__header__steps, .checkout__form, .checkout__registration__form, .product-list {
   zoom: 1; }
-  .site-header:before, .bottom:before, .site-footer:before, .site-footer__nav:before, .main:before, .cart__header:before, .cart__header .inner:before, .cart__item:before, .cart__item aside:before, .cart__footer:before, .product-list:before, .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .product-list:after {
+  .site-header:before, .bottom:before, .site-footer:before, .site-footer__nav:before, .main:before, .cart__header:before, .cart__header .inner:before, .cart__item:before, .cart__item aside:before, .cart__footer:before, .checkout__header:before, .checkout__header .inner:before, .checkout__header__steps:before, .checkout__form:before, .checkout__registration__form:before, .product-list:before, .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .checkout__header:after, .checkout__header .inner:after, .checkout__header__steps:after, .checkout__form:after, .checkout__registration__form:after, .product-list:after {
     display: table;
     visibility: hidden;
     content: ""; }
-  .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .product-list:after {
+  .site-header:after, .bottom:after, .site-footer:after, .site-footer__nav:after, .main:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .checkout__header:after, .checkout__header .inner:after, .checkout__header__steps:after, .checkout__form:after, .checkout__registration__form:after, .product-list:after {
     clear: both; }
 
 a, button, input[type="submit"], .site-header__collections .nav-toggle {
@@ -494,12 +494,23 @@ select {
   font-size: 12px;
   font-size: 1.2rem;
   -webkit-appearance: none;
+  -moz-appearance: none;
   display: block;
   width: 100%;
   margin: 1em 0;
-  padding: .75em 1em;
+  padding: .75em 3em .75em 1em;
   background-color: #fff;
-  border: 1px solid #231f20; }
+  background-position: right center;
+  background-repeat: no-repeat;
+  border: 1px solid #231f20;
+  background-image: url("../img/graphics/select-arrow-01.png"); }
+  @media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi) {
+    select {
+      background-image: url("../img/graphics/select-arrow-01-2x.png");
+      background-size: 25px 50px; } }
+
+::-ms-expand {
+  display: none; }
 
 /**************************************************
  DEFAULT TABLE STYLES
@@ -1281,12 +1292,12 @@ select {
     .cart__footer__totals li .label {
       display: block;
       float: left;
-      width: 60%;
+      width: 65%;
       color: #747679; }
     .cart__footer__totals li .amount {
       display: block;
       float: right;
-      width: 40%; }
+      width: 30%; }
     .cart__footer__totals li.grand-total {
       padding-top: .25em;
       border-top: 1px solid #231f20;
@@ -1300,6 +1311,203 @@ select {
     color: #fff; }
     .cart__footer .button:hover, .cart__footer .button:focus {
       background-color: #72181a; }
+
+/**************************************************
+ CHECKOUT PAGE STYLES
+**************************************************/
+.checkout__header {
+  padding: 6em 5%;
+  border-bottom: 1px solid #231f20; }
+  .checkout__header .inner {
+    position: relative; }
+  .checkout__header h1 {
+    float: left;
+    margin: 0;
+    color: #a79a81;
+    font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
+    font-weight: 400; }
+  .checkout__header__steps {
+    float: left;
+    margin: 0 0 0 4.5em;
+    list-style: none;
+    text-align: center;
+    background: url("../img/graphics/dashed-line-01.png") 0 12px repeat-x; }
+    @media screen and (min-width: 33.75em) {
+      .checkout__header__steps {
+        margin-top: .5em;
+        margin-left: 6em; } }
+    @media screen and (min-width: 45em) {
+      .checkout__header__steps {
+        margin-left: 7.5em; } }
+    .checkout__header__steps li {
+      font-size: 10px;
+      font-size: 1rem;
+      position: relative;
+      float: left;
+      line-height: 1;
+      margin: 0 0 0 6em; }
+      .checkout__header__steps li:first-child {
+        margin-left: 0; }
+      @media screen and (min-width: 33.75em) {
+        .checkout__header__steps li {
+          margin-left: 9em; } }
+      @media screen and (min-width: 45em) {
+        .checkout__header__steps li {
+          margin-left: 12em; } }
+    .checkout__header__steps .number {
+      font-size: 12px;
+      font-size: 1.2rem;
+      display: block;
+      width: 2.5em;
+      margin: 0;
+      padding: .75em 0;
+      background-color: #fff;
+      border: 1px solid #231f20;
+      text-align: center; }
+    .checkout__header__steps .label {
+      font-size: 10px;
+      font-size: 1rem;
+      position: absolute;
+      top: 4.5em;
+      left: 50%;
+      display: block;
+      text-align: center;
+      width: 9em;
+      margin-left: -4.5em;
+      color: #8f9194; }
+      @media screen and (min-width: 45em) {
+        .checkout__header__steps .label {
+          width: 15em;
+          margin-left: -7.5em; } }
+    .checkout__header__steps .current .number {
+      background-color: #d6d6cf;
+      border: 1px solid #9c2124; }
+    .checkout__header__steps .current .label {
+      color: #231f20; }
+.checkout__content {
+  border-bottom: 1px solid #231f20; }
+  .checkout__content .inner {
+    position: relative; }
+@media screen and (min-width: 45em) {
+  .checkout__form__billing {
+    float: left; } }
+@media screen and (min-width: 45em) {
+  .checkout__form__shipping {
+    float: right; } }
+.checkout__form h4 {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 1.5em 0;
+  text-transform: uppercase; }
+.checkout__form .ship-to-billing {
+  margin-top: 3em; }
+.checkout__summary {
+  padding: 3em 5%;
+  background-color: #d6d6cf; }
+  @media screen and (min-width: 56.25em) {
+    .checkout__summary {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 33.33%;
+      padding: 3em 3em 9em; } }
+  .checkout__summary .inner {
+    position: static;
+    max-width: 42em;
+    margin: 0 auto; }
+  .checkout__summary h4 {
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin: 1.5em 0;
+    text-transform: uppercase; }
+  .checkout__summary__totals {
+    margin: 3em 0;
+    list-style: none; }
+    .checkout__summary__totals li {
+      overflow: hidden; }
+    .checkout__summary__totals .label {
+      float: left;
+      width: 45%; }
+    .checkout__summary__totals .ammount {
+      float: right;
+      width: 50%; }
+    .checkout__summary__totals .totals {
+      margin-top: 1.5em; }
+  .checkout__summary .view-cart {
+    font-size: 10px;
+    font-size: 1rem;
+    margin: 3em 0;
+    text-transform: uppercase; }
+    .checkout__summary .view-cart a {
+      color: #9c2124; }
+      .checkout__summary .view-cart a:hover, .checkout__summary .view-cart a:focus {
+        color: #231f20; }
+  .checkout__summary .button {
+    background-color: #9c2124;
+    color: #fff; }
+    @media screen and (min-width: 56.25em) {
+      .checkout__summary .button {
+        position: absolute;
+        bottom: 1.5em;
+        left: 3em;
+        right: 3em; } }
+    .checkout__summary .button:hover, .checkout__summary .button:focus {
+      background-color: #72181a; }
+
+.checkout__form, .checkout__registration__form {
+  padding: 3em 5%; }
+  @media screen and (min-width: 56.25em) {
+    .checkout__form, .checkout__registration__form {
+      width: 66.66%;
+      padding: 3em; } }
+  @media screen and (min-width: 45em) {
+    .checkout__form fieldset, .checkout__registration__form fieldset {
+      width: 47.5%; } }
+  .checkout__form .field-group, .checkout__registration__form .field-group {
+    font-size: 10px;
+    font-size: 1rem;
+    margin: 1.5em 0;
+    overflow: hidden; }
+    .checkout__form .field-group label, .checkout__registration__form .field-group label {
+      font-size: 12px;
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: .5em; }
+      @media screen and (min-width: 33.75em) {
+        .checkout__form .field-group label, .checkout__registration__form .field-group label {
+          float: left;
+          width: 20%;
+          margin-top: .625em;
+          margin-bottom: 0; } }
+      @media screen and (min-width: 45em) {
+        .checkout__form .field-group label, .checkout__registration__form .field-group label {
+          width: 22.5%; } }
+    .checkout__form .field-group input, .checkout__registration__form .field-group input,
+    .checkout__form .field-group select,
+    .checkout__registration__form .field-group select {
+      margin: 0; }
+      @media screen and (min-width: 33.75em) {
+        .checkout__form .field-group input, .checkout__registration__form .field-group input,
+        .checkout__form .field-group select,
+        .checkout__registration__form .field-group select {
+          float: right;
+          width: 80%; } }
+      @media screen and (min-width: 45em) {
+        .checkout__form .field-group input, .checkout__registration__form .field-group input,
+        .checkout__form .field-group select,
+        .checkout__registration__form .field-group select {
+          width: 75%; } }
+
+.checkout__form .ship-to-billing, .checkout__registration__form .register-checkbox {
+  padding-left: 1.75em; }
+  .checkout__form .ship-to-billing input, .checkout__registration__form .register-checkbox input {
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    margin: -0.125em .5em 0 -1.75em; }
 
 /**************************************************
  HOME PAGE STYLES
