@@ -1,16 +1,21 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
-<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
-<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE html>
+
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 8 ]><html class="no-js ie ltie8 ltie9 ltie10" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8 ltie9 ltie10" lang="en"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie ie9 ltie10"> <![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
 <head>
 
-  {% if settings.use_favicon %}
-  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
-  {% endif %}
-
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+  <meta http-equiv="imagetoolbar" content="false">
+  <meta http-equiv="cleartype" content="on">
 
   <title>
   {{ page_title }}{% if current_tags %} &ndash; {{ 'general.meta.tagged' | t }} "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t }} {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
@@ -19,26 +24,35 @@
   {% if page_description %}
   <meta name="description" content="{{ page_description }}" />
   {% endif %}
+  <meta name="author" content="Page Author Goes Here">
+  <meta name="copyright" content="Copyright Message Goes Here">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="canonical" href="{{ canonical_url }}" />
+  <meta name="DC.title" content="Page Title Repeated Here">
+  <meta name="DC.subject" content="Page Description Repeated Here">
+  <meta name="DC.creator" content="Page Author Repeated Here, with Developer">
 
   {% include 'fb-open-graph-tags' %}
   {% include 'twitter-card' %}
 
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
   {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
   {{ 'social-buttons.scss.css' | asset_url | stylesheet_tag }}
+  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|EB+Garamond">
 
-  {% if settings.header_font contains 'Google' %}
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.header_font | remove: 'Google+' }}:300,400,700">
-  {% endif %}
-  {% if settings.base_font contains 'Google' %}
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.base_font | remove: 'Google+' }}:300,400,700">
-  {% endif %}
   {{ 'html5shiv.js' | asset_url | script_tag }}
+  <script src="_assets/js/scripts.head.min.js"></script>
+  
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="_assets/fav/apple-touch-icon-152x152-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="_assets/fav/apple-touch-icon-144x144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="_assets/fav/apple-touch-icon-120x120-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="_assets/fav/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="_assets/fav/apple-touch-icon-76x76-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="_assets/fav/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="_assets/fav/apple-touch-icon-60x60-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="_assets/fav/apple-touch-icon-57x57-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="_assets/fav/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+
+  <link rel="canonical" href="{{ canonical_url }}" />
 
   {{ content_for_header }}
 
@@ -49,8 +63,8 @@
   {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
 
   {% if template contains 'customers' %}
-  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-  {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
   {% endif %}
   {{ 'scripts.js' | asset_url | script_tag }}
   {{ 'social-buttons.js' | asset_url | script_tag }}
@@ -58,7 +72,7 @@
 </head>
 
 <body>
-
+  
   <!-- Begin toolbar -->
   <div class="toolbar-wrapper wrapper">
     <div class="toolbar span12 clearfix">
