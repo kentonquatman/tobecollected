@@ -1,0 +1,61 @@
+/**************************************************
+ BOTTOM SECTION STYLES
+**************************************************/
+
+.bottom {
+  @extend %clearfix;
+  padding: 3em $side-padding;
+  background-color: $dk-brown;
+  color: $lt-gray;
+  @include break-up($medium){
+    padding: 4.5em $side-padding;
+  }
+  aside {
+    margin-bottom: 3em;
+    @include break-up($small){
+      float: left;
+      width: 65%;
+      margin-bottom: 0;
+    }
+    h2 {
+      @include font-size(20);
+      margin: 0 0 .75em;
+      color: $lt-brown;
+      font-family: $garamond;
+      font-weight: 400;
+      letter-spacing: .1em;
+      @include break-up($medium){
+        @include font-size(26);
+      }
+      @include break-up($x-large){
+        @include font-size(30);
+      }
+
+    }
+  }
+  &__buttons {
+    @include break-up($small){
+      float: right;
+      width: 30%;
+      margin-top: .25em;
+    }
+    .button {
+      @include font-size(12);
+      display: block;
+      margin: 0 0 1.5em;
+      padding: .75em 1em;
+      background-color: $white;
+      border: 1px solid $lt-brown;
+      color: $black;
+      text-align: center;
+      text-transform: uppercase;
+      @include break-up($small){
+        max-width: 20em;
+      }
+      &:hover,
+      &:focus {
+        background-color: $lt-brown;
+      }
+    }
+  }
+}

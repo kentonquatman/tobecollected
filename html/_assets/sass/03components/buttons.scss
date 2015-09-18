@@ -1,0 +1,19 @@
+/**************************************************
+ BUTTON STYLES
+**************************************************/
+
+%button {
+  @include font-size(12);
+  display: block;
+  margin: 1em 0;
+  padding: .75em 1em;
+  background-color: $button-bg;
+  color: $white;
+  font-family: $button-font;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.button {
+  @extend %button;
+}
