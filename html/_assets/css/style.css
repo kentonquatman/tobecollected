@@ -1,12 +1,6 @@
 /****************************************************************************************************
  VARIABLES
 ****************************************************************************************************/
-/* 3d Transform Defaults */
-/* Transition Defaults */
-/* Color Contrast Defaults */
-/****************************************************************************************************
- COMPASS
-****************************************************************************************************/
 /****************************************************************************************************
  HELPERS
 ****************************************************************************************************/
@@ -21,8 +15,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
+b, u, i, center, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
@@ -35,6 +28,15 @@ time, mark, audio, video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer,
+header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+label, input[type='button'], input[type='submit'],
+button,
+input[type="submit"], input[type="submit"], a {
+  cursor: pointer; }
 
 html {
   line-height: 1; }
@@ -53,28 +55,19 @@ caption, th, td {
 
 q, blockquote {
   quotes: none; }
-  q:before, q:after, blockquote:before, blockquote:after {
-    content: "";
-    content: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
 
 a img {
   border: none; }
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block; }
 
 audio:not([controls]) {
   display: none; }
 
 [hidden] {
   display: none; }
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-  font-weight: normal; }
 
 address, caption, cite, code, dfn, th, var {
   font-style: normal;
@@ -92,28 +85,87 @@ img, object, embed {
   max-width: 100%;
   height: auto !important;
   border: 0; }
-  .ie8 img, .ie8 object, .ie8 embed {
-    width: auto; }
+
+.ie8 img, .ie8 object, .ie8 embed {
+  width: auto; }
+
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
 
 svg:not(:root) {
   overflow: hidden; }
+
+em, i {
+  font-style: italic; }
+
+strong, b {
+  font-weight: bold; }
+
+em > strong, strong > em {
+  font-weight: bold;
+  font-style: italic; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+sub, sup {
+  font-size: .75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word; }
+
+pre, code, kbd, samp {
+  font-family: "courier new", monospace, serif;
+  font-size: 1em; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
 
 ins {
   color: #231f20;
   text-decoration: none; }
 
-mark {
-  color: #231f20; }
-
 del {
   text-decoration: line-through; }
+
+mark {
+  color: #231f20; }
 
 abbr {
   cursor: help; }
 
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help; }
+textarea {
+  overflow: auto; }
+
+input, select {
+  vertical-align: middle; }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+  *vertical-align: baseline; }
+
+select, input, textarea {
+  font: 99% sans-serif; }
+
+button, input[type="submit"], input[type="submit"] {
+  width: auto;
+  overflow: visible; }
+
+button, input[type="submit"], input[type="submit"], input, select, textarea {
+  margin: 0; }
 
 table {
   font-size: inherit;
@@ -134,72 +186,7 @@ hr {
   margin: 1em 0;
   padding: 0; }
 
-input, select {
-  vertical-align: middle; }
-
-em, i {
-  font-style: italic; }
-
-strong, b {
-  font-weight: bold; }
-
-em > strong, strong > em {
-  font-weight: bold;
-  font-style: italic; }
-
-small {
-  font-size: .85em; }
-
-sub, sup {
-  font-size: .75em;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
-
-sup {
-  top: -0.5em; }
-
-sub {
-  bottom: -0.25em; }
-
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  white-space: pre-line;
-  word-wrap: break-word; }
-
-pre, code, kbd, samp {
-  font-family: "courier new", monospace, serif;
-  font-size: 1em; }
-
-textarea {
-  overflow: auto; }
-
-.clickable, label, input[type='button'], input[type='submit'], button, input[type="submit"], a {
-  cursor: pointer; }
-
-input[type="radio"] {
-  vertical-align: text-bottom; }
-
-input[type="checkbox"] {
-  vertical-align: bottom;
-  *vertical-align: baseline; }
-
-select, input, textarea {
-  font: 99% sans-serif; }
-
-button, input[type="submit"] {
-  width: auto;
-  overflow: visible; }
-
-button, input[type="submit"], input, select, textarea {
-  margin: 0; }
-
-.ie7 img {
-  -ms-interpolation-mode: bicubic; }
-
 html {
-  font-size: 100%;
   overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
@@ -222,10 +209,11 @@ html {
     clear: both; }
 
 a, button, input[type="submit"], .site-header__collections .nav-toggle {
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s; }
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease; }
 
 /****************************************************************************************************
  BASE
@@ -252,9 +240,6 @@ img::-moz-selection {
 
   a:link {
     -webkit-tap-highlight-color: rgba(36, 34, 29, 0.5); } }
-/**************************************************
- GLOBAL STYLES
-**************************************************/
 html {
   font-size: 62.5%; }
 
@@ -398,9 +383,9 @@ small {
   display: block;
   margin: 1em 0; }
 
-/****************************************************************************************************
- COMPONENTS
-****************************************************************************************************/
+/**************************************************
+ DEFAULT BUTTON STYLES
+**************************************************/
 .button, button, input[type="submit"] {
   font-size: 12px;
   font-size: 1.2rem;
@@ -423,8 +408,8 @@ input[type="tel"],
 input[type="url"],
 input[type="password"],
 textarea {
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border-radius: 0;
   font-size: 12px;
   font-size: 1.2rem;
@@ -441,8 +426,8 @@ button, input[type="submit"] {
   width: 100%; }
 
 select {
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border-radius: 0;
   font-size: 12px;
   font-size: 1.2rem;
@@ -784,11 +769,10 @@ select {
       margin: 0 .5em;
       line-height: normal; }
     .site-footer__social-links a {
-      -moz-box-shadow: inset 1px 2px 3px rgba(35, 31, 32, 0.5);
       -webkit-box-shadow: inset 1px 2px 3px rgba(35, 31, 32, 0.5);
       box-shadow: inset 1px 2px 3px rgba(35, 31, 32, 0.5);
-      -moz-border-radius: 50%;
       -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
       border-radius: 50%;
       display: block;
       overflow: hidden;
@@ -995,7 +979,8 @@ select {
             background-image: url("../img/graphics/share-sprite-01-2x.png");
             background-size: 30px 180px; } }
         .product__details .share-links li a:hover, .product__details .share-links li a:focus {
-          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+          filter: alpha(opacity=50);
           opacity: 0.5; }
     .product__details .share-links .print a {
       background-position: 50% 0; }
@@ -1207,8 +1192,8 @@ select {
       *vertical-align: auto;
       *zoom: 1;
       *display: inline;
-      -moz-border-radius: 50%;
       -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
       border-radius: 50%;
       content: "";
       width: 1em;

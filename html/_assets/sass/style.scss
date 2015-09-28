@@ -2,8 +2,6 @@
  VARIABLES
 ****************************************************************************************************/
 
-@import "00variables/compass-variables";
-
 // FONT STACKS
 
 $sans-serif: Helmet, Freesans, sans-serif;
@@ -61,18 +59,6 @@ $base-size: 10;
 $side-padding: 5%;
 
 /****************************************************************************************************
- COMPASS
-****************************************************************************************************/
-
-@import "compass/css3";
-@import "compass/typography";
-@import "compass/layout/stretching";
-@import "compass/utilities/color";
-@import "compass/utilities/general/float";
-@import "compass/utilities/general/min";
-@import "compass/utilities/general/reset";
-
-/****************************************************************************************************
  HELPERS
 ****************************************************************************************************/
 
@@ -111,6 +97,29 @@ $xx-large: 1260;
   font-size: #{$pixels/$base-size}rem;
 }
 
+// BORDER RADIUS 
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// BOX SHADOW
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin inline-block($align: middle) {
+ display: inline-block;
+ vertical-align: $align;
+ *vertical-align: auto;
+ *zoom: 1;
+ *display: inline;
+}
+
 // BUTTONS
 
 @mixin button($bg-color, $font-size: 18) {
@@ -147,53 +156,82 @@ $xx-large: 1260;
   padding: image-height($sm-image) 0 0;
   background-position: 0 0;
   background-repeat: no-repeat;
-  @include image-2x($sm-image, $lg-image);
+  @include hires($sm-image, $lg-image);
 }
 
 /**************************************************
  RESET STYLES
 **************************************************/
 
-@include global-reset;
-
-audio:not([controls]) { display: none; }
-[hidden] { display: none; }
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-h1,h2,h3,h4,h5,h6 { font-size: 100%; font-weight: normal; }
-address,caption,cite,code,dfn,th,var { font-style: normal; font-weight: normal; }
-a { font-size: 100%; vertical-align: baseline; background: transparent; }
-a:hover, a:active {outline: none;}
-img, object, embed {max-width: 100%; height: auto !important; border: 0; .ie8 & {width: auto;}}
-svg:not(:root) { overflow: hidden; }
-ins { color: $body-text; text-decoration: none; }
-mark { color: $body-text; }
-del { text-decoration: line-through; }
-abbr { cursor: help; }
-abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
-table { font-size: inherit; font: 100%; }
-th { font-weight: bold; vertical-align: bottom; }
-td, td img { vertical-align: top; }
-hr { display: block; height: 1px; border:0; border-top: 1px solid $border-color; margin: 1em 0; padding:0; }
-input, select { vertical-align:middle; }
-em, i { font-style: italic; }
-strong, b { font-weight: bold; }
-em > strong, strong > em { font-weight: bold; font-style: italic; }
-small { font-size: .85em; }
-sub, sup { font-size: .75em; line-height: 0; position: relative; vertical-align: baseline; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-pre { white-space: pre; white-space: pre-wrap; white-space: pre-line; word-wrap: break-word; }
-pre, code, kbd, samp { font-family: $code-font; font-size: 1em; }
-textarea { overflow: auto; }
-.clickable, label, input[type='button'], input[type='submit'], button, a { cursor: pointer; }
-input[type="radio"] { vertical-align: text-bottom; }
-input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
-select, input, textarea { font: 99% sans-serif; }
-button { width: auto; overflow: visible; }
-button, input, select, textarea { margin: 0; }
-.ie7 img { -ms-interpolation-mode: bicubic; }
-html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-*, *:after, *:before { @include box-sizing(border-box); }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer,
+header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+label, input[type='button'], input[type='submit'],
+button, input[type="submit"], a {
+  cursor: pointer;
+}
+html { line-height: 1 }
+ol, ul { list-style: none }
+table { border-collapse: collapse; border-spacing: 0 }
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle }
+q, blockquote { quotes: none }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none }
+a img { border: none }
+audio:not([controls]) { display: none }
+[hidden] { display: none }
+address, caption, cite, code, dfn, th, var { font-style: normal; font-weight: normal }
+a { font-size: 100%; vertical-align: baseline; background: transparent }
+a:hover, a:active { outline: none }
+img, object, embed { max-width: 100%; height: auto !important; border: 0 }
+.ie8 img, .ie8 object, .ie8 embed { width: auto }
+.ie7 img { -ms-interpolation-mode: bicubic }
+svg:not(:root) { overflow: hidden }
+em, i { font-style: italic }
+strong, b { font-weight: bold }
+em > strong, strong > em { font-weight: bold; font-style: italic }
+sup { top: -0.5em }
+sub { bottom: -0.25em }
+sub, sup { font-size: .75em; line-height: 0; position: relative; vertical-align: baseline }
+pre { white-space: pre; white-space: pre-wrap; white-space: pre-line; word-wrap: break-word }
+pre, code, kbd, samp { font-family: $code-font; font-size: 1em }
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help }
+ins { color: #231f20; text-decoration: none }
+del { text-decoration: line-through }
+mark { color: #231f20 }
+abbr { cursor: help }
+textarea { overflow: auto }
+input, select { vertical-align: middle}
+input[type="radio"] { vertical-align: text-bottom }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline }
+select, input, textarea { font: 99% sans-serif }
+button, input[type="submit"] { width: auto; overflow: visible }
+button, input[type="submit"], input, select, textarea { margin: 0 }
+table { font-size: inherit; font: 100% }
+th { font-weight: bold; vertical-align: bottom }
+td, td img { vertical-align: top }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #231f20; margin: 1em 0; padding: 0}
+html { overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100% }
+*, *:after, *:before { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box }
 
 /**************************************************
  EXTENDABLE STYLES
@@ -201,19 +239,16 @@ html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-
 
 %clearfix {
   zoom: 1;
-  &:before,
-  &:after {
-    display:table;
-    visibility:hidden;
-    content:"";
-  }
-  &:after {
-    clear:both;
-  }
+  &:before, &:after { display: table; visibility: hidden; content: "" }
+  &:after { clear:both }
 }
 
 %transition {
-  @include transition();
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
 }
 
 /****************************************************************************************************
@@ -230,23 +265,9 @@ img::-moz-selection { background: transparent; }
   a:link {-webkit-tap-highlight-color: $selection-bg;}
 }
 
-/**************************************************
- GLOBAL STYLES
-**************************************************/
-
-html {
-  font-size: percentage($base-size/16);
-}
-
-body {
-  background-color: $body-bg;
-  color: $body-text;
-  font-family: $body-font;
-}
-
-.inner {
-  @extend %site-column;
-}
+html { font-size: percentage($base-size/16) }
+body { background-color: $body-bg; color: $body-text; font-family: $body-font }
+.inner { @extend %site-column }
 
 /**************************************************
  LAYOUT STYLES
@@ -260,14 +281,14 @@ body {
 
 %major-column {
   @include break-up($medium){
-    @include float;
+    float: left;
     width: 70%;
   }
 }
 
 %minor-column {
   @include break-up($medium){
-    @include float(right);
+    float: right;
     width: 25%;
   }
 }
@@ -369,9 +390,9 @@ small {
   margin: 1em 0;
 }
 
-/****************************************************************************************************
- COMPONENTS
-****************************************************************************************************/
+/**************************************************
+ DEFAULT BUTTON STYLES
+**************************************************/
 
 %button {
   @include font-size(12);
@@ -385,9 +406,7 @@ small {
   text-transform: uppercase;
 }
 
-.button {
-  @extend %button;
-}
+.button { @extend %button }
 
 /**************************************************
  DEFAULT FORM STYLES
@@ -445,9 +464,7 @@ select {
   );
 }
 
-::-ms-expand {
-  display: none;
-}
+::-ms-expand { display: none }
 
 /****************************************************************************************************
  HEADER STYLES
@@ -1006,9 +1023,10 @@ select {
             "../img/graphics/share-sprite-01.png",
             "../img/graphics/share-sprite-01-2x.png"
           );
-          &:hover,
-          &:focus {
-            @include opacity(.5);
+          &:hover, &:focus {
+            -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+            filter: alpha(opacity=50);
+            opacity: 0.5;
           }
         }
       }
