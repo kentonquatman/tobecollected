@@ -1,8 +1,11 @@
-/**************************************************
+/****************************************************************************************************
  VARIABLES
-**************************************************/
-/**************************************************
+****************************************************************************************************/
+/****************************************************************************************************
  HELPERS
+****************************************************************************************************/
+/**************************************************
+ MIXINS
 **************************************************/
 /**************************************************
  RESET STYLES
@@ -196,13 +199,13 @@ html {
 /**************************************************
  EXTENDABLE STYLES
 **************************************************/
-.site-header, .site-footer, .site-footer__nav, .bottom, .main, .product-list, .cart__header, .cart__header .inner, .cart__item, .cart__item aside, .cart__footer, .checkout__header, .checkout__header .inner, .checkout__header__steps, .checkout__form, .checkout__registration__form {
+.site-header, .site-footer, .site-footer__nav, .bottom, .main, .cart__header, .cart__header .inner, .cart__item, .cart__item aside, .cart__footer, .checkout__header, .checkout__header .inner, .checkout__header__steps, .checkout__form, .checkout__registration__form, .product-list {
   zoom: 1; }
-  .site-header:before, .site-footer:before, .site-footer__nav:before, .bottom:before, .main:before, .product-list:before, .cart__header:before, .cart__header .inner:before, .cart__item:before, .cart__item aside:before, .cart__footer:before, .checkout__header:before, .checkout__header .inner:before, .checkout__header__steps:before, .checkout__form:before, .checkout__registration__form:before, .site-header:after, .site-footer:after, .site-footer__nav:after, .bottom:after, .main:after, .product-list:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .checkout__header:after, .checkout__header .inner:after, .checkout__header__steps:after, .checkout__form:after, .checkout__registration__form:after {
+  .site-header:before, .site-footer:before, .site-footer__nav:before, .bottom:before, .main:before, .cart__header:before, .cart__header .inner:before, .cart__item:before, .cart__item aside:before, .cart__footer:before, .checkout__header:before, .checkout__header .inner:before, .checkout__header__steps:before, .checkout__form:before, .checkout__registration__form:before, .product-list:before, .site-header:after, .site-footer:after, .site-footer__nav:after, .bottom:after, .main:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .checkout__header:after, .checkout__header .inner:after, .checkout__header__steps:after, .checkout__form:after, .checkout__registration__form:after, .product-list:after {
     display: table;
     visibility: hidden;
     content: ""; }
-  .site-header:after, .site-footer:after, .site-footer__nav:after, .bottom:after, .main:after, .product-list:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .checkout__header:after, .checkout__header .inner:after, .checkout__header__steps:after, .checkout__form:after, .checkout__registration__form:after {
+  .site-header:after, .site-footer:after, .site-footer__nav:after, .bottom:after, .main:after, .cart__header:after, .cart__header .inner:after, .cart__item:after, .cart__item aside:after, .cart__footer:after, .checkout__header:after, .checkout__header .inner:after, .checkout__header__steps:after, .checkout__form:after, .checkout__registration__form:after, .product-list:after {
     clear: both; }
 
 a, button, input[type="submit"], .site-header__collections .nav-toggle {
@@ -212,9 +215,9 @@ a, button, input[type="submit"], .site-header__collections .nav-toggle {
   -o-transition: all .2s ease;
   transition: all .2s ease; }
 
-/**************************************************
- BASE STYLES
-**************************************************/
+/****************************************************************************************************
+ BASE
+****************************************************************************************************/
 ::selection {
   background: rgba(36, 34, 29, 0.5);
   text-shadow: none;
@@ -447,9 +450,9 @@ select {
 ::-ms-expand {
   display: none; }
 
-/**************************************************
+/****************************************************************************************************
  HEADER STYLES
-**************************************************/
+****************************************************************************************************/
 .site-header {
   background-color: #24221d; }
   .site-header__logo {
@@ -589,37 +592,25 @@ select {
     @media screen and (min-width: 33.75em) {
       .site-header__content .group {
         float: left;
-        height: 48em;
+        height: 45em;
         width: 50%;
         border-left: 1px solid #383739; } }
     @media screen and (min-width: 45em) {
       .site-header__content .group {
-        height: 51em; } }
+        height: 48em; } }
     @media screen and (min-width: 56.25em) {
       .site-header__content .group {
-        height: 48em; } }
+        height: 45em; } }
     .site-header__content .group img {
       display: block;
       width: 100%; }
     .site-header__content .text-wrapper {
-      padding: 3em 5%;
+      padding: 2em 5% 1.5em;
       color: #fff; }
-      @media screen and (min-width: 33.75em) {
-        .site-header__content .text-wrapper {
-          padding-left: 1.5em;
-          padding-right: 1.5em; } }
       .site-header__content .text-wrapper h1 {
-        font-size: 30px;
-        font-size: 3rem;
-        margin: 0 0 .75em;
+        margin: 0;
         color: #a79a81;
-        font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
-        letter-spacing: .125em; }
-      .site-header__content .text-wrapper p {
-        font-size: 11px;
-        font-size: 1.1rem;
-        color: #747679;
-        line-height: 1.8; }
+        font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif; }
 
 .site-header__collections, .site-header__cart {
   position: relative;
@@ -629,7 +620,7 @@ select {
     .site-header__collections, .site-header__cart {
       float: right;
       width: 50%;
-      padding: 3em 1.5em;
+      padding: 3em;
       border-top: none; } }
   @media screen and (min-width: 56.25em) {
     .site-header__collections, .site-header__cart {
@@ -637,9 +628,9 @@ select {
       #home .site-header__collections, #home .site-header__cart {
         height: 12em; } }
 
-/**************************************************
+/****************************************************************************************************
  FOOTER STYLES
-**************************************************/
+****************************************************************************************************/
 .site-footer__nav li, .site-footer__nav p, .site-footer__nav address, .site-footer__share-button {
   font-size: 14px;
   font-size: 1.4rem;
@@ -823,21 +814,10 @@ select {
         width: 65%;
         margin-bottom: 0; } }
     .bottom aside h2 {
-      font-size: 20px;
-      font-size: 2rem;
       margin: 0 0 .75em;
       color: #a79a81;
       font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
-      font-weight: 400;
-      letter-spacing: .1em; }
-      @media screen and (min-width: 45em) {
-        .bottom aside h2 {
-          font-size: 26px;
-          font-size: 2.6rem; } }
-      @media screen and (min-width: 67.5em) {
-        .bottom aside h2 {
-          font-size: 30px;
-          font-size: 3rem; } }
+      font-weight: 400; }
   @media screen and (min-width: 33.75em) {
     .bottom__buttons {
       float: right;
@@ -860,9 +840,9 @@ select {
     .bottom__buttons .button:hover, .bottom__buttons .button:focus {
       background-color: #a79a81; }
 
-/**************************************************
- MAIN SECTION STYLES
-**************************************************/
+/****************************************************************************************************
+ SECTIONS
+****************************************************************************************************/
 .main {
   border-top: 4em solid #675f57; }
   .main__top {
@@ -884,118 +864,6 @@ select {
         float: right;
         width: 66.66%;
         border-left: 1px solid #231f20; } }
-
-/**************************************************
- HOME PAGE STYLES
-**************************************************/
-.product-list article {
-  border-top: 1px solid #a79a81;
-  text-align: center; }
-  .product-list article:first-child {
-    border-top: none; }
-  .product-list article a {
-    display: block;
-    padding: 3em 5%; }
-  .product-list article figure {
-    margin-bottom: 2em; }
-    .product-list article figure img {
-      vertical-align: bottom; }
-  .product-list article h6 {
-    margin: 0; }
-@media screen and (min-width: 33.75em) {
-  .product-list article {
-    float: left;
-    width: 50%;
-    border-top: none;
-    border-left: 1px solid #a79a81; }
-    .product-list article:nth-child(2n+1) {
-      clear: left;
-      border-left: none; }
-    .product-list article a {
-      padding: 4.5em 3em 6em; } }
-@media screen and (min-width: 56.25em) {
-  .product-list article {
-    width: 33.33%; }
-    .product-list article:nth-child(2n+1) {
-      clear: none;
-      border-left: 1px solid #a79a81; }
-    .product-list article:nth-child(3n+1) {
-      clear: left;
-      border-left: none; } }
-.product-list__header, .product-list__footer {
-  clear: both;
-  padding: 3em 5%;
-  background-color: #675f57; }
-  @media screen and (min-width: 45em) {
-    .product-list__header, .product-list__footer {
-      padding-top: 2em;
-      padding-bottom: 2em; } }
-.product-list__header {
-  overflow: hidden; }
-  .product-list__header h3 {
-    font-size: 16px;
-    font-size: 1.6rem;
-    margin: 0 0 1.5em;
-    color: #fff;
-    font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
-    font-style: italic;
-    text-align: center;
-    letter-spacing: .125em; }
-    @media screen and (min-width: 45em) {
-      .product-list__header h3 {
-        float: left;
-        text-align: left;
-        margin: .125em 0; } }
-    @media screen and (min-width: 56.25em) {
-      .product-list__header h3 {
-        margin: 0; } }
-  @media screen and (min-width: 56.25em) {
-    .product-list__header .pagination-links {
-      float: left;
-      width: auto;
-      padding: 0 1.5em;
-      margin-left: 6em; } }
-
-.pagination-links {
-  position: relative;
-  max-width: 21em;
-  margin: 0 auto;
-  text-align: center; }
-  .pagination-links a:hover, .pagination-links a:focus {
-    color: #fff; }
-  .pagination-links .prev,
-  .pagination-links .next {
-    font-size: 16px;
-    font-size: 1.6rem;
-    position: absolute;
-    top: .125em;
-    color: #231f20; }
-  .pagination-links .prev {
-    left: 0; }
-  .pagination-links .next {
-    right: 0; }
-  .pagination-links ol {
-    list-style: none;
-    margin: 0; }
-    .pagination-links ol li {
-      font-size: 16px;
-      font-size: 1.6rem;
-      display: inline;
-      margin: 0 1em;
-      line-height: normal; }
-  .pagination-links .active a {
-    color: #fff;
-    cursor: pointer; }
-  @media screen and (min-width: 56.25em) {
-    .pagination-links {
-      width: 18em; }
-      .pagination-links .prev,
-      .pagination-links .next {
-        font-size: 12px;
-        font-size: 1.2rem; }
-      .pagination-links ol li {
-        font-size: 12px;
-        font-size: 1.2rem; } }
 
 /**************************************************
  PRODUCT PAGE STYLES
@@ -1569,3 +1437,111 @@ select {
     *zoom: 1;
     *display: inline;
     margin: -0.125em .5em 0 -1.75em; }
+
+/**************************************************
+ HOME PAGE STYLES
+**************************************************/
+.product-list article {
+  border-top: 1px solid #a79a81;
+  text-align: center; }
+  .product-list article:first-child {
+    border-top: none; }
+  .product-list article a {
+    display: block;
+    padding: 3em 5%; }
+  .product-list article figure {
+    margin-bottom: 2em; }
+    .product-list article figure img {
+      vertical-align: bottom; }
+  .product-list article h6 {
+    margin: 0; }
+@media screen and (min-width: 33.75em) {
+  .product-list article {
+    float: left;
+    width: 50%;
+    border-top: none;
+    border-left: 1px solid #a79a81; }
+    .product-list article:nth-child(2n+1) {
+      clear: left;
+      border-left: none; }
+    .product-list article a {
+      padding: 4.5em 3em 6em; } }
+@media screen and (min-width: 56.25em) {
+  .product-list article {
+    width: 33.33%; }
+    .product-list article:nth-child(2n+1) {
+      clear: none;
+      border-left: 1px solid #a79a81; }
+    .product-list article:nth-child(3n+1) {
+      clear: left;
+      border-left: none; } }
+.product-list__header, .product-list__footer {
+  clear: both;
+  padding: 3em 5%;
+  background-color: #675f57; }
+  @media screen and (min-width: 45em) {
+    .product-list__header, .product-list__footer {
+      padding-top: 2em;
+      padding-bottom: 2em; } }
+.product-list__header {
+  overflow: hidden; }
+  .product-list__header h3 {
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin: 0 0 1.5em;
+    color: #fff;
+    font-family: "EB Garamond", Georgia, Times, "Times New Roman", serif;
+    font-style: italic;
+    text-align: center; }
+    @media screen and (min-width: 45em) {
+      .product-list__header h3 {
+        float: left;
+        text-align: left;
+        margin: 0; } }
+  @media screen and (min-width: 56.25em) {
+    .product-list__header .pagination-links {
+      float: left;
+      width: auto;
+      padding: 0 1.5em;
+      margin-left: 6em; } }
+
+.pagination-links {
+  position: relative;
+  max-width: 21em;
+  margin: 0 auto;
+  text-align: center; }
+  .pagination-links a:hover, .pagination-links a:focus {
+    color: #fff; }
+  .pagination-links .prev,
+  .pagination-links .next {
+    font-size: 16px;
+    font-size: 1.6rem;
+    position: absolute;
+    top: .125em;
+    color: #231f20; }
+  .pagination-links .prev {
+    left: 0; }
+  .pagination-links .next {
+    right: 0; }
+  .pagination-links ol {
+    list-style: none;
+    margin: 0; }
+    .pagination-links ol li {
+      font-size: 16px;
+      font-size: 1.6rem;
+      display: inline;
+      margin: 0 1em;
+      line-height: normal; }
+  .pagination-links .active a {
+    color: #fff;
+    cursor: pointer; }
+  @media screen and (min-width: 56.25em) {
+    .pagination-links {
+      width: 18em; }
+      .pagination-links .prev,
+      .pagination-links .next {
+        font-size: 12px;
+        font-size: 1.2rem; }
+      .pagination-links ol li {
+        font-size: 12px;
+        font-size: 1.2rem; } }
