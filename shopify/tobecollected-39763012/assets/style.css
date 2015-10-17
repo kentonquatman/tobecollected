@@ -1,12 +1,7 @@
 /**************************************************
- VARIABLES
-**************************************************/
-/**************************************************
- HELPERS
-**************************************************/
-/**************************************************
  RESET STYLES
 **************************************************/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,16 +19,18 @@ time, mark, audio, video {
   border: 0;
   font: inherit;
   font-size: 100%;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure, footer,
 header, hgroup, main, menu, nav, section, summary {
-  display: block; }
+  display: block;
+}
 
 label, input[type='button'], input[type='submit'],
-button,
-input[type="submit"], input[type="submit"], a {
-  cursor: pointer; }
+button, input[type="submit"], input[type="submit"], a {
+  cursor: pointer;
+}
 
 html {
   line-height: 1; }
