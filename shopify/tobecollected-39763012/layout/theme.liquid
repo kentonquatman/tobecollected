@@ -34,22 +34,22 @@
   {% include 'fb-open-graph-tags' %}
   {% include 'twitter-card' %}
 
-  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'style.scss.css' | asset_url | stylesheet_tag }}
   {{ 'social-buttons.scss.css' | asset_url | stylesheet_tag }}
   <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|EB+Garamond">
 
   {{ 'html5shiv.js' | asset_url | script_tag }}
   <script src="_assets/js/scripts.head.min.js"></script>
   
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="_assets/fav/apple-touch-icon-152x152-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="_assets/fav/apple-touch-icon-144x144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="_assets/fav/apple-touch-icon-120x120-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="_assets/fav/apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="_assets/fav/apple-touch-icon-76x76-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="_assets/fav/apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="_assets/fav/apple-touch-icon-60x60-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="_assets/fav/apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="_assets/fav/apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ 'apple-touch-icon-152x152-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ 'apple-touch-icon-144x144-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ 'apple-touch-icon-120x120-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'apple-touch-icon-114x114-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ 'apple-touch-icon-76x76-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'apple-touch-icon-72x72-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ 'apple-touch-icon-60x60-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ 'apple-touch-icon-57x57-precomposed.png' | asset_url }}">
+  <link rel="apple-touch-icon-precomposed" href="{{ 'apple-touch-icon-precomposed.png' | asset_url }}">
   <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
 
   <link rel="canonical" href="{{ canonical_url }}" />
@@ -70,8 +70,45 @@
   {{ 'social-buttons.js' | asset_url | script_tag }}
 
 </head>
-
 <body>
+
+  <header class="site-header">
+    <div class="inner">
+      <h1 class="site-header__logo"><a href="index.php">To Be Collected</a></h1>
+      <div class="site-header__navigation">
+        <div class="site-header__cart">
+          <a href="cart.php">Cart <span class="spacer">|</span> <span class="cart-count">1</span></a>
+        </div>
+        <nav class="site-header__collections">
+          <span class="nav-toggle">Collections</span>
+          <ol>
+            <li><a href="index.php">Full Collection</a></li>
+            <li><a href="index.php">Small Goods</a></li>
+            <li><a href="index.php">Furniture</a></li>
+            <li><a href="index.php">Housewares</a></li>
+            <li><a href="index.php">Lighting</a></li>
+            <li><a href="index.php">Tables</a></li>
+            <li><a href="index.php">Jewelry</a></li>
+            <li><a href="index.php">Miscellaneous</a></li>
+          </ol>
+        </nav>
+      </div>
+      <?php if ( $bodyId == 'home' ) : ?>
+      <aside class="site-header__content">
+        <div class="group">
+          <img src="_assets/img/photos/product-photo-02.jpg" alt="photo">
+          <div class="text-wrapper">
+            <h1>accessible luxury</h1>
+            <p>Known for carrying modern furnishings and emerging designers, TO BE COLLECTED features a personally edited collection of accessories for men, women and the home. Independently owned, we have a true love for artisanal wares and specializes in hand crafted jewelry, and unique housewares.</p>
+          </div>
+        </div>
+        <div class="group">
+          <img src="_assets/img/photos/product-photo-01.jpg" alt="photo">
+        </div>
+      </aside>
+      <?php endif ?>
+    </div>
+  </header>
   
   <!-- Begin toolbar -->
   <div class="toolbar-wrapper wrapper">
