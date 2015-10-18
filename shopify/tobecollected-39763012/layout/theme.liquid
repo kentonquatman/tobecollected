@@ -70,14 +70,15 @@
   {{ 'social-buttons.js' | asset_url | script_tag }}
 
 </head>
-<body>
+<body id="{{ template }}">
 
   <header class="site-header">
     <div class="inner">
-      <h1 class="site-header__logo"><a href="index.php">To Be Collected</a></h1>
+      <h1 class="site-header__logo"><a href="index.php">{{ shop.name }}</a></h1>
       <div class="site-header__navigation">
         <div class="site-header__cart">
-          <a href="cart.php">Cart <span class="spacer">|</span> <span class="cart-count">1</span></a>
+          <a href="/cart">Cart <span class="spacer">|</span> <span class="cart-count">{{ cart.item_count }}</span></a>
+          {{ 'layout.header.cart' | t }}
         </div>
         <nav class="site-header__collections">
           <span class="nav-toggle">Collections</span>
@@ -93,7 +94,7 @@
           </ol>
         </nav>
       </div>
-      <?php if ( $bodyId == 'home' ) : ?>
+      {% if template == 'index' %}
       <aside class="site-header__content">
         <div class="group">
           <img src="_assets/img/photos/product-photo-02.jpg" alt="photo">
@@ -106,212 +107,88 @@
           <img src="_assets/img/photos/product-photo-01.jpg" alt="photo">
         </div>
       </aside>
-      <?php endif ?>
+      {% endif %}
     </div>
   </header>
   
-  <!-- Begin toolbar -->
-  <div class="toolbar-wrapper wrapper">
-    <div class="toolbar span12 clearfix">
-        <ul class="unstyled">
+  {{ content_for_layout }}
 
-          {% if settings.display_search %}
-          <li class="search-field fl">
-            <form class="search" action="/search">
-              <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
-              <input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t }}" value="{{ search.terms }}"  />
-            </form>
-          </li>
-          {% endif %}
-          <li id="cart-target" class="toolbar-cart {% if cart.item_count != 0 %}has-items{% endif %}">
-            <a href="/cart" class="cart" title="Shopping Cart">
-              <span class="icon-cart"></span>
-              <span id="cart-count">{{ cart.item_count }}</span>
-              {{ 'layout.header.cart' | t }}
-            </a>
-          </li>
-
-          {% include 'customer_links' %}
-
-          <li id="menu-toggle" class="menu-icon fl"><i class="fa fa-bars"></i>{{ 'layout.header.menu' | t }}</li>
-        </ul>
-    </div>
-  </div>
-  <!-- End toolbar -->
-
-  <!-- Begin Mobile Nav -->
-  <div class="row mobile-nav-wrapper">
-    <nav class="mobile clearfix">
-      {% include 'mobile-menu' %}
-    </nav>
-  </div>
-  <!-- End Mobile Nav -->
-
-  <!-- Begin wrapper -->
-  <div id="transparency" class="wrapper clearfix">
-    <div class="row p0">
-
-      <!-- Begin navigation -->
-      {% if settings.logo_alignment == "center" %}
-
-        <div class="span12 clearfix">
-          <div class="logo">
-            {% if settings.use_logo %}
-            <h1><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" /></a></h1>
-            {% if template == 'index' %}
-            <h1 style="display:none"><a href="/">{{ shop.name }}</a></h1>
-            {% endif %}
-            {% else %}
-            <h1><a href="/">{{ shop.name }}</a></h1>
-            {% endif %}
-          </div>
-        </div>
-        <section id="nav" class="row p30">
-          <div class="span12">
-            <nav class="main">
-              {% include 'dropdown' %}
-            </nav> <!-- /.main -->
-          </div>
-        </section>
-
-      {% else %}
-
-        <div class="row" id="header">
-          <div class="span12 border-bottom nav-table">
-            <div class="nav-logo">
-              <div class="logo">
-                {% if settings.use_logo %}
-                <h1><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" /></a></h1>
-                {% if template == 'index' %}
-                <h1 style="display:none"><a href="/">{{ shop.name }}</a></h1>
-                {% endif %}
-                {% else %}
-                <h1><a href="/">{{ shop.name }}</a></h1>
-                {% endif %}
-              </div>
-            </div>
-
-            <div class="nav-links">
-              <section id="nav">
-                <nav class="main">
-                  {% include 'dropdown' %}
-                </nav>
-                </section>
-            </div>
-          </div>
-        </div>
-
-      {% endif %}
-      <!-- End navigation -->
-
-      <!-- Begin content-->
-      <section id="content" class="clearfix">
-        {{ content_for_layout }}
-      </section>
-      <!-- End content-->
-
-    </div>
-  </div>
-  <!-- End wrapper -->
-
-  <!-- Begin footer -->
-  <div class="footer-wrapper wrapper">
-    <footer>
-      <div class="row">
-
-        <div class="span12 full-border"></div>
-
-        {% capture footer_columns %}{% if settings.footer_display_blog %}+{% endif %}{% if settings.footer_display_navigation %}+{% endif %}{% if settings.footer_display_newsletter %}+{% endif %}{% if settings.footer_display_social %}+{% endif %}{% endcapture %}
-        {% if footer_columns.size == 1 %}{% assign footer_span_size = 'span12' %}{% endif %}
-        {% if footer_columns.size == 2 %}{% assign footer_span_size = 'span6' %}{% endif %}
-        {% if footer_columns.size == 3 %}{% assign footer_span_size = 'span4' %}{% endif %}
-        {% if footer_columns.size == 4 %}{% assign footer_span_size = 'span3' %}{% endif %}
-
-        <!-- Begin latest blog post -->
-        {% if settings.footer_display_blog and blogs.news.articles.size > 0 %}
-        <div class="{{ footer_span_size }}">
-          {% assign article = blogs.news.articles.first %}
-          <div class="p30">
-            <h4>{{ 'layout.footer.latest_news' | t }}</h4>
-            <p class="p10"><strong>{{ article.title | link_to: article.url }}</strong></p>
-            <p>{{ article.content | strip_html | truncatewords: 30 }}</p>
-          </div>
-        </div>
-        {% endif %}
-        <!-- End latest blog post -->
-
-        {% if settings.footer_display_navigation and linklists.footer.links.size > 0 %}
-        <!-- Begin footer navigation -->
-        <div class="{{ footer_span_size }} footer-menu">
-          <h4>{{ 'layout.footer.quick_links' | t }}</h4>
-          <ul class="unstyled">
-            {% for link in linklists.footer.links %}
-              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-
-        </div>
-        <!-- End footer navigation -->
-        {% endif %}
-
-        {% if settings.footer_display_newsletter %}
-        <!-- Begin newsletter -->
-          <div class="{{ footer_span_size }}">
-            <div class="p30">
-              <h4>{{ 'layout.footer.newsletter_title' | t }}</h4>
-              <form action="{{ settings.mailing_list_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-                <input type="email" value="" placeholder="{{ 'layout.footer.newsletter_email' | t }}" name="EMAIL" id="mail" /><input type="submit" class="btn newsletter" value="{{ 'layout.footer.newsletter_submit' | t }}" name="subscribe" id="subscribe" />
-              </form>
-            </div>
-          </div>
-        <!-- End newsletter -->
-        {% endif %}
-
-        {% if settings.footer_display_social %}
-        <!-- Begin social -->
-          <div class="{{ footer_span_size }}">
-            <h4>{{ 'layout.footer.follow_us' | t }}</h4>
-            {% if settings.twitter_link != blank %}<a href="{{ settings.twitter_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Twitter' }}" class="icon-social twitter">Twitter</a>{% endif %}
-            {% if settings.facebook_link != blank %}<a href="{{ settings.facebook_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Facebook' }}" class="icon-social facebook">Facebook</a>{% endif %}
-            {% if settings.youtube_link != blank %}<a href="{{ settings.youtube_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Youtube' }}" class="icon-social youtube">YouTube</a>{% endif %}
-            {% if settings.atom_link != blank %}<a href="{{ settings.atom_link }}" title="{{ 'layout.footer.news' | t: shop: shop.name }}" class="icon-social atom">Blog feed</a>{% endif %}
-            {% if settings.instagram_link != blank %}<a href="{{ settings.instagram_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Instagram' }}" class="icon-social instagram">Instagram</a>{% endif %}
-            {% if settings.pinterest_link != blank %}<a href="{{ settings.pinterest_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Pinterest' }}" class="icon-social pinterest">Pinterest</a>{% endif %}
-            {% if settings.vimeo_link != blank %}<a href="{{ settings.vimeo_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Vimeo' }}" class="icon-social vimeo">Vimeo</a>{% endif %}
-            {% if settings.tumblr_link != blank %}<a href="{{ settings.tumblr_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Tumblr' }}" class="icon-social tumblr">Tumblr</a>{% endif %}
-            {% if settings.google_link != blank %}<a href="{{ settings.google_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Google+' }}" class="icon-social google" rel="publisher">Google+</a>{% endif %}
-          </div>
-        <!-- End social -->
-        {% endif %}
-
-        <!-- Begin copyright -->
-        <div class="span12 tc copyright">
-          <ul class="credit-cards p10 clearfix">
-            {% if settings.accept_visa %}<li><img src="{{ 'icon-cc-visa.png' | asset_url }}" alt="Visa" /></li>{% endif %}
-            {% if settings.accept_mastercard %}<li><img src="{{ 'icon-cc-mastercard.png' | asset_url }}" alt="MasterCard" /></li>{% endif %}
-            {% if settings.accept_amex %}<li><img src="{{ 'icon-cc-amex.png' | asset_url }}" alt="Amex" /></li>{% endif %}
-            {% if settings.accept_discover %}<li><img src="{{ 'icon-cc-discover.png' | asset_url }}" alt="Discover" /></li>{% endif %}
-            {% if settings.accept_paypal %}<li><img src="{{ 'icon-cc-paypal.png' | asset_url }}" alt="PayPal" /></li>{% endif %}
-            {% if settings.accept_google %}<li><img src="{{ 'icon-cc-google.png' | asset_url }}" alt="Google Wallet" /></li>{% endif %}
-            {% if settings.accept_bitcoin %}<li><img src="{{ 'icon-cc-bitcoin.png' | asset_url }}" alt="Bitcoin" /></li>{% endif %}
-
-          </ul> <!-- /.credit-cards -->
-          <p>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }} | {{ powered_by_link }}</p>
-        </div>
-        <!-- End copyright -->
-
+  <section class="bottom">
+    <div class="inner">
+      <aside>
+        <h2>not finding what you're looking for?</h2>
+        <p>Contact us with your request. We will do our best  to recommend pieces that either match or come close to what you are seeking. We can't always guarantee success, but with our network of artisans, we have a deep resource of options for you to select from.</p>
+      </aside>
+      <div class="bottom__buttons">
+        <a class="button" href="page.php">Contact Us</a>
+        <a class="button" href="gift-card.php">Gift Cards</a>
       </div>
-    </footer>
-  </div>
-  <!-- End footer -->
+    </div>
+  </section>
+  
+  <footer class="site-footer">
+    <div class="inner">
+      <nav class="site-footer__nav">
+        <div class="nav-group">
+          <h5>Contact Us</h5>
+          <p>800.555.1212</p>
+          <p><a href="mailto:info@tobecollected.com">info@tobecollected.com</a></p>
+          <address>
+            To Be Collected<br>
+            321 S. Jefferson Street<br>
+            Floor 4.<br>
+            Chicago, Illinois 60661
+          </address>
+        </div>
+        <div class="nav-group">
+          <h5>Customer Service</h5>
+          <ul>
+            <li><a href="page.php">Terms and Conditions</a></li>
+            <li><a href="page.php">Privacy Policy</a></li>
+            <li><a href="page.php">Shipping and Returns</a></li>
+            <li><a href="faq.php">FAQ's</a></li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <h5>My Account</h5>
+          <ul>
+            <li><a href="page.php">Login/Register</a></li>
+            <li><a href="page.php">View Cart</a></li>
+            <li><a href="page.php">Track My Order</a></li>
+          </ul>
+        </div>
+        <span class="site-footer__share-button">
+          <a href="#">Share This Page</a>
+        </span>
+      </nav>
+      <ul class="site-footer__social-links">
+        <li class="facebook"><a href="#">Facebook</a></li>
+        <li class="pinterest"><a href="#">Pinterest</a></li>
+      </ul>
+      <p class="site-footer__copyright">&copy; To Be Collected LLC</p>
+    </div>
+  </footer>
 
-  {{ 'jquery.flexslider-min.js' | asset_url | script_tag }}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ 'jquery.js' | asset_url }}"><\/script>')</script>
 
-  {% if settings.enable_product_image_zoom %}
-    {{ 'jquery.zoom.js' | asset_url | script_tag }}
-  {% endif %}
-  {{ 'jquery.tweet.js' | asset_url | script_tag }}
-  {{ 'jquery.fancybox.js' | asset_url | script_tag }}
+<script src="{{ 'scripts.foot.min.js' | asset_url }}"></script>
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+  <script src="{{ 'scripts.ie8.min.js' | asset_url }}"></script>
+<![endif]-->
+
+<!--[if (lt IE 8) & (!IEMobile)]>
+  <script src="{{ 'imgsizer.js' | asset_url }}"></script>
+  <script>
+    addLoadEvent(function() {
+      if (document.getElementById && document.getElementsByTagName) {
+        var aImgs = document.getElementById('content').getElementsByTagName('img');
+        imgSizer.collate(aImgs);
+      }
+    });
+  </script>
+<![endif]-->
 
 </body>
 </html>
