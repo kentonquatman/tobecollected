@@ -9,11 +9,10 @@
 <head>
 
   <meta charset="utf-8">
-  
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta http-equiv="imagetoolbar" content="false">
   <meta http-equiv="cleartype" content="on">
 
@@ -24,22 +23,18 @@
   {% if page_description %}
   <meta name="description" content="{{ page_description }}" />
   {% endif %}
-  <meta name="author" content="Page Author Goes Here">
-  <meta name="copyright" content="Copyright Message Goes Here">
-
-  <meta name="DC.title" content="Page Title Repeated Here">
-  <meta name="DC.subject" content="Page Description Repeated Here">
-  <meta name="DC.creator" content="Page Author Repeated Here, with Developer">
-
+  <meta name="author" content="{{ shop.name }}">
+  <meta name="DC.title" content="{{ page_title }}">
+  {% if page_description %}
+  <meta name="DC.subject" content="{{ page_description }}">
+  {% endif %}
+  <meta name="DC.creator" content="{{ shop.name }}">
   {% include 'fb-open-graph-tags' %}
   {% include 'twitter-card' %}
-
   {{ 'style.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'social-buttons.scss.css' | asset_url | stylesheet_tag }}
   <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|EB+Garamond">
 
-  {{ 'html5shiv.js' | asset_url | script_tag }}
-  <script src="_assets/js/scripts.head.min.js"></script>
+  {{ 'scripts.head.min.js' | asset_url | script_tag }}
   
   <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ 'apple-touch-icon-152x152-precomposed.png' | asset_url }}">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ 'apple-touch-icon-144x144-precomposed.png' | asset_url }}">
@@ -56,28 +51,15 @@
 
   {{ content_for_header }}
 
-  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
-  {{ 'jquery-migrate-1.2.0.min.js' | asset_url | script_tag }}
-
-  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
-  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
-
-  {% if template contains 'customers' %}
-    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
-  {% endif %}
-  {{ 'scripts.js' | asset_url | script_tag }}
-  {{ 'social-buttons.js' | asset_url | script_tag }}
-
 </head>
 <body id="{{ template }}">
 
   <header class="site-header">
     <div class="inner">
-      <h1 class="site-header__logo"><a href="index.php">{{ shop.name }}</a></h1>
+      <h1 class="site-header__logo"><a href="{{ shop.url }}">{{ shop.name }}</a></h1>
       <div class="site-header__navigation">
         <div class="site-header__cart">
-          <a href="/cart">Cart <span class="spacer">|</span> <span class="cart-count">{{ cart.item_count }}</span></a>
+          <a href="{{ shop.url }}/cart">Cart <span class="spacer">|</span> <span id="cart-count" class="cart-count">{{ cart.item_count }}</span></a>
           {{ 'layout.header.cart' | t }}
         </div>
         <nav class="site-header__collections">
@@ -85,26 +67,20 @@
           <ol>
             <li><a href="index.php">Full Collection</a></li>
             <li><a href="index.php">Small Goods</a></li>
-            <li><a href="index.php">Furniture</a></li>
-            <li><a href="index.php">Housewares</a></li>
-            <li><a href="index.php">Lighting</a></li>
-            <li><a href="index.php">Tables</a></li>
-            <li><a href="index.php">Jewelry</a></li>
-            <li><a href="index.php">Miscellaneous</a></li>
           </ol>
         </nav>
       </div>
       {% if template == 'index' %}
       <aside class="site-header__content">
         <div class="group">
-          <img src="_assets/img/photos/product-photo-02.jpg" alt="photo">
+          <img src="{{ settings.home_image_one | asset_url }}" alt="photo">
           <div class="text-wrapper">
-            <h1>accessible luxury</h1>
-            <p>Known for carrying modern furnishings and emerging designers, TO BE COLLECTED features a personally edited collection of accessories for men, women and the home. Independently owned, we have a true love for artisanal wares and specializes in hand crafted jewelry, and unique housewares.</p>
+            <h1>{{ settings.home_headline }}</h1>
+            <p>{{ settings.home_text }}</p>
           </div>
         </div>
         <div class="group">
-          <img src="_assets/img/photos/product-photo-01.jpg" alt="photo">
+          <img src="{{ settings.home_image_two | asset_url }}" alt="photo">
         </div>
       </aside>
       {% endif %}
@@ -131,13 +107,11 @@
       <nav class="site-footer__nav">
         <div class="nav-group">
           <h5>Contact Us</h5>
-          <p>800.555.1212</p>
-          <p><a href="mailto:info@tobecollected.com">info@tobecollected.com</a></p>
+          <p><a href="mailto:{{ shop.email }}">{{ shop.email }}</a></p>
           <address>
-            To Be Collected<br>
-            321 S. Jefferson Street<br>
-            Floor 4.<br>
-            Chicago, Illinois 60661
+            {{ shop.name }}<br>
+            {{ shop.address.street }}<br>
+            {{ shop.address.city }}, {{ shop.address.province }} {{ shop.address.zip }}
           </address>
         </div>
         <div class="nav-group">
@@ -158,28 +132,37 @@
           </ul>
         </div>
         <span class="site-footer__share-button">
-          <a href="#">Share This Page</a>
+          <a href="mailto:?&amp;subject=To Be Collected&amp;body=To%20Be%20Collected%20-%20http://tobecollected.myshopify.com/">Share This Page</a>
         </span>
       </nav>
       <ul class="site-footer__social-links">
-        <li class="facebook"><a href="#">Facebook</a></li>
-        <li class="pinterest"><a href="#">Pinterest</a></li>
+        {%if settings.facebook != '' %}<li class="facebook"><a href="{{ settings.facebook }}" target="_blank">Facebook</a></li>{% endif %}
+        {%if settings.pinterest != '' %}<li class="pinterest"><a href="{{ settings.pinterest }}" target="_blank">Pinterest</a></li>{% endif %}
       </ul>
-      <p class="site-footer__copyright">&copy; To Be Collected LLC</p>
+      <p class="site-footer__copyright">&copy; {{ shop.name }}</p>
     </div>
   </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ 'jquery.js' | asset_url }}"><\/script>')</script>
 
-<script src="{{ 'scripts.foot.min.js' | asset_url }}"></script>
+{{ 'scripts.foot.min.js' | asset_url | script_tag }}
+
+{{ 'scripts.js' | asset_url | script_tag }}
+
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+{% if template contains 'customers' %}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+{% endif %}
 
 <!--[if (lt IE 9) & (!IEMobile)]>
-  <script src="{{ 'scripts.ie8.min.js' | asset_url }}"></script>
+  {{ 'scripts.ie8.min.js' | asset_url | script_tag }}
 <![endif]-->
 
 <!--[if (lt IE 8) & (!IEMobile)]>
-  <script src="{{ 'imgsizer.js' | asset_url }}"></script>
+  {{ 'imgsizer.js' | asset_url | script_tag }}
   <script>
     addLoadEvent(function() {
       if (document.getElementById && document.getElementsByTagName) {
