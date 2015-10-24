@@ -56,7 +56,7 @@
 
 </head>
 
-<body id="{% if template contains '404' %}page{% else %}{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% endif %}" >
+<body id="{{ body_id }}" >
 
 <!--{% include 'header-bar' %}-->
 

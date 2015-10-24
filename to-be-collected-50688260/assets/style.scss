@@ -1273,6 +1273,12 @@ select {
   }
   .back { color: $x-lt-gray }
   .checkout { color: $red }
+  .checkout {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
 }
 
 .cart__header__links {
