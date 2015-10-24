@@ -12,7 +12,7 @@
     </div>
   </header>
   <div class="inner">
-    {% for product in collection.products %}
+    {% for product in collections.all.products %}
     {% include 'product-grid-item' %}
     {% endfor %}
   </div>

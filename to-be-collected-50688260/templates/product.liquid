@@ -3,19 +3,19 @@
     <article class="product">
       <header class="product__header">
         <h1>{{ product.title }}</h1>
-        <p>
-          <span class="price">
+        <div class="product__price-bar">
+          <h4 class="price">
             {{ product.price | money }}
             {% if product.compare_at_price > product.price %}
-              <s id="ComparePrice" class="product-single__sale-price">{{ product.compare_at_price_max | money }}</s>
+            <s id="ComparePrice" class="product-single__sale-price">{{ product.compare_at_price_max | money }}</s>
             {% endif %}
-            </span>
+          </h4>
           <span class="spacer">|</span>
-          <form method="post" action="/cart/add" enctype="multipart/form-data" id="AddToCartForm">
+          <form method="post" action="/cart/add" enctype="multipart/form-data" class="product__add-button">
             <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <input type="submit" value="Buy now" class="btn">
+            <input type="submit" value="Add">
           </form>
-        </p>
+        </div>
         <a class="back" href="index.php">&lt; Back to Collection</a>
       </header>
       <figure class="product__photo">
@@ -46,11 +46,11 @@
 
 <section class="gallery">
   <ul class="gallery__images">
-    <li><img src="_assets/img/photos/gallery-photo-01.jpg" alt="photo"></li>
-    <li><img src="_assets/img/photos/gallery-photo-02.jpg" alt="photo"></li>
-    <li><img src="_assets/img/photos/gallery-photo-03.jpg" alt="photo"></li>
-    <li><img src="_assets/img/photos/gallery-photo-04.jpg" alt="photo"></li>
-    <li><img src="_assets/img/photos/gallery-photo-05.jpg" alt="photo"></li>
-    <li><img src="_assets/img/photos/gallery-photo-06.jpg" alt="photo"></li>
+    <li><img src="{{ 'gallery-photo-01.jpg' | asset_url }}" alt="photo"></li>
+    <li><img src="{{ 'gallery-photo-02.jpg' | asset_url }}" alt="photo"></li>
+    <li><img src="{{ 'gallery-photo-03.jpg' | asset_url }}" alt="photo"></li>
+    <li><img src="{{ 'gallery-photo-04.jpg' | asset_url }}" alt="photo"></li>
+    <li><img src="{{ 'gallery-photo-05.jpg' | asset_url }}" alt="photo"></li>
+    <li><img src="{{ 'gallery-photo-06.jpg' | asset_url }}" alt="photo"></li>
   </ul>
 </section>

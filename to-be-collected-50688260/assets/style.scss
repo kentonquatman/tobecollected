@@ -1118,6 +1118,34 @@ select {
   }
 }
 
+.product__price-bar {
+  margin: 1em 0;
+  .price,
+  .spacer {
+    @include font-size(12);
+    display: inline;
+  }
+}
+
+.product__add-button {
+  display: inline;
+  width: auto;
+  input[type="submit"]{
+    @include font-size(12);
+    display: inline;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: $black;
+  }
+  .continue-shopping {
+    @include font-size(12);
+  }
+}
+
+.btn--flipped { display: none !important }
+
 .product__photo {
   img {
     display: block;

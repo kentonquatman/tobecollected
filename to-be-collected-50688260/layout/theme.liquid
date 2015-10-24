@@ -80,14 +80,14 @@
     {% if template contains 'index' %}
     <aside class="site-header__content">
       <div class="group">
-        <img src="_assets/img/photos/product-photo-02.jpg" alt="photo">
+        <img src="{{ 'product-photo-01.jpg' | asset_url }}" alt="photo">
         <div class="text-wrapper">
           <h1>accessible luxury</h1>
           <p>Known for carrying modern furnishings and emerging designers, TO BE COLLECTED features a personally edited collection of accessories for men, women and the home. Independently owned, we have a true love for artisanal wares and specializes in hand crafted jewelry, and unique housewares.</p>
         </div>
       </div>
       <div class="group">
-        <img src="_assets/img/photos/product-photo-01.jpg" alt="photo">
+        <img src="{{ 'product-photo-02.jpg' | asset_url }}" alt="photo">
       </div>
     </aside>
     {% endif %}
