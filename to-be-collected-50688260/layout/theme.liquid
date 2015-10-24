@@ -65,7 +65,7 @@
     <h1 class="site-header__logo"><a href="/">{{ shop.name }}</a></h1>
     <div class="site-header__navigation">
       <div class="site-header__cart">
-        <a href="/cart">{{ 'layout.cart.title' | t }} <span class="spacer">|</span> <span class="cart-count header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span></a>
+        <a href="/cart">{{ 'layout.cart.title' | t }} <span class="spacer">|</span> <span id="cart-count" class="cart-count header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span></a>
       </div>
       <nav class="site-header__collections">
         <span class="nav-toggle">Collections</span>
