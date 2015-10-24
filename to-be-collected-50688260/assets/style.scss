@@ -453,8 +453,8 @@ select {
   background-repeat: no-repeat;
   border: 1px solid $border-color;
   @include hires(
-    "../img/graphics/select-arrow-01.png",
-    "../img/graphics/select-arrow-01-2x.png"
+    "select-arrow-01.png",
+    "select-arrow-01-2x.png"
   );
 }
 
@@ -775,8 +775,8 @@ select {
     height: 35px;
     margin-left: .5em;
     @include hires(
-      "../img/graphics/share-icon-01.png",
-      "../img/graphics/share-icon-01-2x.png"
+      "share-icon-01.png",
+      "share-icon-01-2x.png"
     );
   }
 }
@@ -815,8 +815,8 @@ select {
     background-position: 0 0;
     background-repeat: no-repeat;
     @include hires(
-      "../img/graphics/social-sprite-01.png",
-      "../img/graphics/social-sprite-01-2x.png"
+      "social-sprite-01.png",
+      "social-sprite-01-2x.png"
     );
   }
   .facebook a { background-position: 0 0 }
@@ -1191,8 +1191,8 @@ select {
         background-repeat: no-repeat;
         background-position: 0 0;
         @include hires(
-          "../img/graphics/share-sprite-01.png",
-          "../img/graphics/share-sprite-01-2x.png"
+          "share-sprite-01.png",
+          "share-sprite-01-2x.png"
         );
         &:hover,
         &:focus {
