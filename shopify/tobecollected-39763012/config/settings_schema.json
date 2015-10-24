@@ -5,11 +5,11 @@
     "settings": [
       {
         "type": "header",
-        "content": "Launchpad Star Theme"
+        "content": "To Be Collected Theme"
       },
       {
         "type": "paragraph",
-        "content": "This theme is officially supported by Shopify, if you have any questions please [contact our support team](mailto:themesupport@shopify.com)."
+        "content": "This theme is supported by Flockhart Design."
       }
     ]
   },
@@ -27,31 +27,19 @@
       },
       {
         "type": "text",
-        "id": "twitter_link",
-        "label": "Twitter",
-        "info": "https:\/\/twitter.com\/shopify"
+        "id": "pinterest",
+        "label": "Pinterest",
+        "info": "https:\/\/www.pinterest.com\/shopify"
       },
       {
         "type": "text",
-        "id": "facebook_link",
+        "id": "facebook",
         "label": "Facebook",
         "info": "https:\/\/www.facebook.com\/shopify"
       },
       {
-        "type": "text",
-        "id": "pinterest_link",
-        "label": "Pinterest",
-        "info": "https:\/\/www.pinterest.com\/shopify\/"
-      },
-      {
-        "type": "text",
-        "id": "instagram_link",
-        "label": "Instagram",
-        "info": "https:\/\/instagram.com\/shopify\/"
-      },
-      {
         "type": "header",
-        "content": "Payment method Icons"
+        "content": "Payment Method Icons"
       },
       {
         "type": "checkbox",
@@ -95,142 +83,31 @@
     "settings": [
       {
         "type": "header",
-        "content": "Slideshow Banner"
+        "content": "Header Content"
       },
       {
-        "type": "paragraph",
-        "content": "Slide 1"
+        "type": "text",
+        "id": "home_headline",
+        "label": "Header Headline"
       },
       {
-        "type": "checkbox",
-        "id": "slide_1"
+        "type": "textarea",
+        "id": "home_text",
+        "label": "Header Text"
       },
       {
         "type": "image",
-        "id": "slideshow_1.jpg",
-        "label": "Show",
-        "max-width": 966,
-        "info": "966px wide recommended"
-      },
-      {
-        "type": "text",
-        "id": "slide_1_alt",
-        "label": "Image"
-      },
-      {
-        "type": "text",
-        "id": "slide_1_link",
-        "label": "Links to",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "paragraph",
-        "content": "Slide 2"
-      },
-      {
-        "type": "checkbox",
-        "id": "slide_2"
+        "id": "home_image_one",
+        "label": "Header Image 1",
+        "max-width":  400,
+        "max-height": 270
       },
       {
         "type": "image",
-        "id": "slideshow_2.jpg",
-        "label": "Show",
-        "max-width": 966,
-        "info": "966px wide recommended"
-      },
-      {
-        "type": "text",
-        "id": "slide_2_alt",
-        "label": "Image"
-      },
-      {
-        "type": "text",
-        "id": "slide_2_link",
-        "label": "Links to",
-        "default": "\/collections\/all"
-      },
-      {
-        "type": "paragraph",
-        "content": "Slide 3"
-      },
-      {
-        "type": "checkbox",
-        "id": "slide_3"
-      },
-      {
-        "type": "image",
-        "id": "slideshow_3.jpg",
-        "label": "Show",
-        "max-width": 966,
-        "info": "966px wide recommended"
-      },
-      {
-        "type": "text",
-        "id": "slide_3_alt",
-        "label": "Image"
-      },
-      {
-        "type": "text",
-        "id": "slide_3_link",
-        "label": "Links to"
-      },
-      {
-        "type": "paragraph",
-        "content": "Slide 4"
-      },
-      {
-        "type": "checkbox",
-        "id": "slide_4"
-      },
-      {
-        "type": "image",
-        "id": "slideshow_4.jpg",
-        "label": "Show",
-        "max-width": 966,
-        "info": "966px wide recommended"
-      },
-      {
-        "type": "text",
-        "id": "slide_4_alt",
-        "label": "Image"
-      },
-      {
-        "type": "text",
-        "id": "slide_4_link",
-        "label": "Links to"
-      },
-      {
-        "type": "header",
-        "content": "Home page products"
-      },
-      {
-        "type": "collection",
-        "id": "frontpage_collection",
-        "label": "Featured products"
-      },
-      {
-        "type": "select",
-        "id": "frontpage_collection_layout",
-        "label": "Product layout",
-        "options": [
-          {
-            "value": "auto",
-            "label": "Automatic"
-          },
-          {
-            "value": "grid",
-            "label": "Grid"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Home page content"
-      },
-      {
-        "type": "page",
-        "id": "homepage",
-        "label": "Featured content"
+        "id": "home_image_two",
+        "label": "Header Image 2",
+        "max-width":  400,
+        "max-height": 270
       }
     ]
   },
@@ -257,126 +134,6 @@
         "label": "Show related products",
         "default": true,
         "info": "Only visible within a collection"
-      },
-      {
-        "type": "header",
-        "content": "Social media sharing"
-      },
-      {
-        "type": "checkbox",
-        "id": "social_sharing_products",
-        "label": "Enable product sharing"
-      },
-      {
-        "type": "checkbox",
-        "id": "social_sharing_count",
-        "label": "Show shared count",
-        "info": "Only available for Facebook, Twitter, and Pinterest"
-      },
-      {
-        "type": "select",
-        "id": "social_sharing_style",
-        "label": "Button style",
-        "options": [
-          {
-            "value": "",
-            "label": "Normal"
-          },
-          {
-            "value": "is-large",
-            "label": "Large"
-          },
-          {
-            "value": "is-clean",
-            "label": "Clean"
-          }
-        ]
-      },
-      {
-        "type": "checkbox",
-        "id": "share_facebook",
-        "label": "Share on Facebook"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_twitter",
-        "label": "Tweet on Twitter"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_pinterest",
-        "label": "Pin on Pinterest"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_fancy",
-        "label": "Add to Fancy"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_google",
-        "label": "+1 on Google Plus"
-      }
-    ]
-  },
-  {
-    "name": "Collection page",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Filters"
-      },
-      {
-        "type": "checkbox",
-        "id": "collection_tags",
-        "label": "Enable browse",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "collection_sort",
-        "label": "Enable sort",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Collection Page Layout"
-      },
-      {
-        "type": "select",
-        "id": "products_per_row",
-        "label": "Products per row",
-        "options": [
-          {
-            "value": "3",
-            "label": "3"
-          },
-          {
-            "value": "4",
-            "label": "4"
-          }
-        ],
-        "default": "3"
-      },
-      {
-        "type": "text",
-        "id": "pagination_limit",
-        "label": "Products per page",
-        "default": "24"
-      }
-    ]
-  },
-  {
-    "name": "Blog page",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Social Sharing"
-      },
-      {
-        "type": "checkbox",
-        "id": "social_sharing_blog",
-        "label": "Enable sharing for blog posts"
       }
     ]
   },
