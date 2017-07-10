@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 8 ]><html class="no-js ie ltie8 ltie9 ltie10" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8 ltie9 ltie10" lang="en"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie ie9 ltie10"> <![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="imagetoolbar" content="false">
+  <meta http-equiv="cleartype" content="on">
+
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% include 'social-meta-tags' %}
+
+  {{ 'style.scss.css' | asset_url | stylesheet_tag }}
+  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|EB+Garamond">
+
+  {% if settings.favicon_enable %}
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png">
+  {% endif %}
+  
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ 'apple-touch-icon-152x152-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ 'apple-touch-icon-144x144-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ 'apple-touch-icon-120x120-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'apple-touch-icon-114x114-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ 'apple-touch-icon-76x76-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'apple-touch-icon-72x72-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ 'apple-touch-icon-60x60-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ 'apple-touch-icon-57x57-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon-precomposed" href="{{ 'apple-touch-icon-precomposed.png' | asset_url }}" type="image/png">
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png">
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {{ content_for_header }}
+  {% include 'oldIE-js' %}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+
+</head>
+
+<body id="{{ body_id }}" >
+
+<!--{% include 'header-bar' %}-->
+
+<header class="site-header">
+  <div class="inner">
+    <h1 class="site-header__logo"><a href="/">{{ shop.name }}</a></h1>
+    <div class="site-header__navigation">
+      <div class="site-header__cart">
+        <a href="/cart">{{ 'layout.cart.title' | t }} <span class="spacer">|</span> <span id="cart-count" class="cart-count header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span></a>
+      </div>
+      <nav class="site-header__collections">
+        <span class="nav-toggle">Collections</span>
+        <ol>
+          <li><a href="/">Full Collection</a></li>
+          {% for collection in collections %}
+          <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+          {% endfor %}
+        </ol>
+      </nav>
+    </div>
+    {% if template contains 'index' %}
+    <aside class="site-header__content">
+      <div class="group">
+        <img src="{{ 'product-photo-01.jpg' | asset_url }}" alt="photo">
+        <div class="text-wrapper">
+          <h1>accessible luxury</h1>
+          <p>Known for carrying modern furnishings and emerging designers, TO BE COLLECTED features a personally edited collection of accessories for men, women and the home. Independently owned, we have a true love for artisanal wares and specializes in hand crafted jewelry, and unique housewares.</p>
+        </div>
+      </div>
+      <div class="group">
+        <img src="{{ 'product-photo-02.jpg' | asset_url }}" alt="photo">
+      </div>
+    </aside>
+    {% endif %}
+  </div>
+</header>
+
+{{ content_for_layout }}
+
+<section class="bottom">
+  <div class="inner">
+    <aside>
+      <h2>not finding what you're looking for?</h2>
+      <p>Contact us with your request. We will do our best  to recommend pieces that either match or come close to what you are seeking. We can't always guarantee success, but with our network of artisans, we have a deep resource of options for you to select from.</p>
+    </aside>
+    <div class="bottom__buttons">
+      <a class="button" href="page.php">Contact Us</a>
+      <a class="button" href="gift-card.php">Gift Cards</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="inner">
+    <nav class="site-footer__nav">
+      <div class="nav-group">
+        <h5>Contact Us</h5>
+        <p>800.555.1212</p>
+        <p><a href="mailto:info@tobecollected.com">info@tobecollected.com</a></p>
+        <address>
+          To Be Collected<br>
+          321 S. Jefferson Street<br>
+          Floor 4.<br>
+          Chicago, Illinois 60661
+        </address>
+      </div>
+      <div class="nav-group">
+        <h5>Customer Service</h5>
+        <ul>
+          <li><a href="page.php">Terms and Conditions</a></li>
+          <li><a href="page.php">Privacy Policy</a></li>
+          <li><a href="page.php">Shipping and Returns</a></li>
+          <li><a href="faq.php">FAQ's</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <h5>My Account</h5>
+        <ul>
+          <li><a href="page.php">Login/Register</a></li>
+          <li><a href="page.php">View Cart</a></li>
+          <li><a href="page.php">Track My Order</a></li>
+        </ul>
+      </div>
+      <span class="site-footer__share-button">
+        <a href="#">Share This Page</a>
+      </span>
+    </nav>
+    <ul class="site-footer__social-links">
+      {% if settings.social_facebook_link %}<li class="facebook"><a href="{{ settings.social_facebook_link }}" target="_blank">Facebook</a></li>{% endif %}
+      {% if settings.social_pinterest_link %}<li class="pinterest"><a href="{{ settings.social_pinterest_link }}" target="_blank">Pinterest</a></li>{% endif %}
+    </ul>
+    <p class="site-footer__copyright">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name }}</p>
+  </div>
+</footer>
+
+{{ 'fastclick.min.js' | asset_url | script_tag }}
+{{ 'timber.js' | asset_url | script_tag }}
+{{ 'theme.js' | asset_url | script_tag }}
+
+{{ 'placeholder.js' | asset_url | script_tag }}
+{{ 'functions.js' | asset_url | script_tag }}
+{{ 'ios-orientationchange-fix.js' | asset_url | script_tag }}
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+  {{ 'selectivizr.js' | asset_url | script_tag }}
+  {{ 'respond.js' | asset_url | script_tag }}
+<![endif]-->
+
+<!--[if (lt IE 8) & (!IEMobile)]>
+  {{ 'imgsizer.js' | asset_url | script_tag }}
+  <script>
+    addLoadEvent(function() {
+      if (document.getElementById && document.getElementsByTagName) {
+        var aImgs = document.getElementById('content').getElementsByTagName('img');
+        imgSizer.collate(aImgs);
+      }
+    });
+  </script>
+<![endif]-->
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% assign body_id = 'cart' %}
+
+<section class="main cart">
+  
+{% if cart.item_count > 0 %}
+
+<form action="/cart" method="post" novalidate class="cart">
+  
+  <header class="cart__header">
+    <div class="inner">
+      <h1>my cart</h1>
+      <ul class="cart__header__links">
+        <li><a class="back" href="/">Continue Shopping &gt;</a></li>
+        <li><input type="submit" name="checkout" class="btn checkout" value="Proceed to Checkout &gt;"></li>
+      </ul>
+      <ul class="cart__price-headings">
+        <li>{{ 'cart.label.price' | t }}</li>
+        <li>{{ 'cart.label.quantity' | t }}</li>
+        <li>{{ 'cart.label.total' | t }}</li>
+      </ul>
+    </div>
+  </header>
+  
+  {% for item in cart.items %}
+  <div class="cart__item">
+    <div class="inner">
+      <figure>
+        <a href="{{ item.url }}">
+          <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+        </a>
+      </figure>
+      <aside>
+        <div class="group description">
+          <h5>{{ item.product.title }} <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="remove">{{ 'cart.general.remove' | t }} &gt;</a></h5>
+          <p class="product-dimensions">{{ item.variant.option1 }}</p>
+        </div>
+        <div class="group price">
+          <span class="item-price">{{ item.price | money }}</span>
+          <input type="number" class="item-qty cart__quantity-selector" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">
+          <span class="item-total">{% if item.original_line_price != item.line_price %}<s>{{ item.original_line_price | money }}</s> {% endif %}{{ item.line_price | money }}</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!--
+    <footer class="cart__footer">
+      <div class="inner">
+        <div class="cart__footer__shipping">
+          <h6>Calculate Shipping&nbsp;*</h6>
+          <select>
+            <option>Canada</option>
+            <option>Mexico</option>
+            <option selected>United States</option>
+          </select>
+          <select>
+            <option>- Select State -</option>
+            <option>Alabama</option>
+            <option>Alaska</option>
+            <option>Arizona</option>
+          </select>
+          <input type="text" placeholder="Enter ZIP Code">
+          <input type="submit" value="Show Rates">
+          <p class="standard-shipping">Standard Shipping: $620.00</p>
+          <p class="disclaimer">*For shipping outside the U.S., please
+  contact us directly at internationalorders@tbc.com</p>
+        </div>
+        <div class="cart__footer__totals">
+          <ul>
+            <li>
+              <span class="label">Cart Subtotal:</span>
+              <span class="amount">$4200.00</span>
+            </li>
+            <li>
+              <span class="label">Approx Shipping:</span>
+              <span class="amount">$620.00</span>
+            </li>
+            <li>
+              <span class="label">Sales Tax:</span>
+              <span class="amount">$80.00</span>
+            </li>
+            <li class="grand-total">
+              <span class="label">Approx Total:</span>
+              <span class="amount">$4900.00</span>
+            </li>
+          </ul>
+          <p>Orders are final and can't be changed so please ensure you have selected the correct products.</p>
+          <input type="submit" name="checkout" class="button checkout" value="Proceed to Checkout">
+        </div>
+      </div>
+    </footer>
+  -->
+
+  <footer class="cart__footer">
+    <div class="inner">
+      <div class="cart__footer__totals">
+        <p>Shipping will be calculated on the following page.</p>
+        <p>Orders are final and can't be changed so please ensure you have selected the correct products.</p>
+        <input type="submit" name="checkout" class="button checkout" value="Proceed to Checkout">
+      </div>
+    </div>
+  </footer>
+  
+</form>
+
+{% else %}
+
+  <header class="cart__header">
+    <div class="inner">
+      <h1>my cart</h1>
+      <ul class="cart__header__links">
+        <li><a class="back" href="/">Continue Shopping &gt;</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="cart__item">
+    <div class="inner">
+      <p>There are no items in your cart. <a href="/">Click here</a> to return to our home page and continue browsing.</p>
+    </div>
+  </div>
+
+{% endif %}
+
+</section>

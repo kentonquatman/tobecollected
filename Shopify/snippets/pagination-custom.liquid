@@ -1,0 +1,13 @@
+<div class="pagination-links">
+  {% if paginate.previous %}
+  <a href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}" class="prev">&lt;</a>
+  {% endif %}
+  <ol>
+    {% for part in paginate.parts %}
+    <li{% if part.title == paginate.current_page %} class="active"{% endif %}><a href="{{ part.url }}">{{ part.title }}</a></li>
+    {% endfor %}
+  </ol>
+  {% if paginate.next %}
+  <a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}" class="next">&gt;</a>
+  {% endif %}
+</div>

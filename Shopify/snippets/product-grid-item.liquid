@@ -1,0 +1,24 @@
+{% unless current_collection == blank %}{% assign current_collection = collection %}{% endunless %}
+{% assign on_sale = false %}
+{% assign sale_text = 'products.product.sale' | t %}
+{% if product.compare_at_price > product.price %}{% assign on_sale = true %}{% endif %}
+{% assign sold_out = true %}
+{% assign sold_out_text = 'products.product.sold_out' | t %}
+{% if product.available %}{% assign sold_out = false %}{% endif %}
+
+<article>
+  <a href="{{ product.url | within: collection }}">
+    <figure>
+      <img src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}">
+    </figure>
+    <h6>
+      {{ product.title }}
+      <span class="spacer">|</span>
+      {% capture price %}{{ product.price | money }}{% endcapture %}
+      {% if on_sale %}
+      <s class="grid-link__sale_price">{{ product.compare_at_price | money }}</s>
+      {% endif %}
+      {% if product.price_varies %}{{ 'products.general.from_html' | t: price: price }}{% else %}{{ price }}{% endif %}
+    </h6>
+  </a>
+</article>

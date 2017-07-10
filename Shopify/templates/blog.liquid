@@ -1,0 +1,28 @@
+{% assign body_id = 'page' %}
+
+{% paginate blog.articles by 1 %}
+
+{% for article in blog.articles %}
+
+  <section class="main">
+    <div class="main__top">
+      <div class="inner">
+        <h1>{{ article.title }}</h1>
+      </div>
+    </div>
+    <div class="inner">
+      <article>
+        {{ article.content }}
+      </article>
+    </div>
+  </section>
+
+{% endfor %}
+
+{% if paginate.pages > 1 %}
+  <div class="pagination-links">
+    {% include 'pagination-custom' %}
+  </div>
+{% endif %}
+
+{% endpaginate %}
